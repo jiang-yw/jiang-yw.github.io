@@ -167,7 +167,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -177,7 +177,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -243,7 +243,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-04-03T12:27:40+08:00" content="2017-04-03">
               2017-04-03
             </time>
@@ -276,10 +276,10 @@
           
             <h2 id="一、配置GitHub"><a href="#一、配置GitHub" class="headerlink" title="一、配置GitHub"></a>一、配置GitHub</h2><p>在Windows下，打开Git Bash.</p>
 <h3 id="1、检查SSH-Keys设置"><a href="#1、检查SSH-Keys设置" class="headerlink" title="1、检查SSH Keys设置"></a>1、检查SSH Keys设置</h3><p>首先检测电脑现有的 SSH Keys：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. $ cd ~/.ssh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh</div></pre></td></tr></table></figure>
 <p>如果显示“No such file or directory”，跳到第三步，否则继续。</p>
 <h3 id="2、备份和移除原来的SSH-Keys设置"><a href="#2、备份和移除原来的SSH-Keys设置" class="headerlink" title="2、备份和移除原来的SSH Keys设置"></a>2、备份和移除原来的SSH Keys设置</h3><p>因为已经存在key文件，所以需要备份旧的数据并删除：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">1. $ ls</div><div class="line"></div><div class="line">2. config	id_rsa	id_rsa.pub	known_hosts</div><div class="line"></div><div class="line">3. $ mkdir key_backup</div><div class="line"></div><div class="line">4. $ cp id_rsa* key_backup</div><div class="line"></div><div class="line">5. $ rm id_rsa*</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">config	id_rsa	id_rsa.pub	known_hosts</div><div class="line">$ mkdir key_backup</div><div class="line">$ cp id_rsa* key_backup</div><div class="line">$ rm id_rsa*</div></pre></td></tr></table></figure>
 
           
         
@@ -342,7 +342,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-02-18T19:44:42+08:00" content="2017-02-18">
               2017-02-18
             </time>
@@ -452,7 +452,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -462,7 +462,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -506,7 +506,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
