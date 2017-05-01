@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GitHub," />
+  <meta name="keywords" content="LeetCode," />
 
 
 
@@ -84,31 +84,19 @@
 
 
 
-<meta name="description" content="在Windows下，打开Git Bash。
-检查SSH Keys设置首先检测电脑现有的 SSH Keys：
-1$ cd ~/.ssh
-如果显示“No such file or directory”，跳到第三步，否则继续。
-备份和移除原来的SSH Keys设置因为已经存在key文件，所以需要备份旧的数据并删除：
-12345$ lsconfig	id_rsa	id_rsa.pub	known_host">
+<meta name="description" content="题目Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub中SSH Keys设置">
-<meta property="og:url" content="http://yoursite.com/2017/04/03/GitHub中SSH Keys设置/index.html">
+<meta property="og:title" content="[LeetCode Easy] 412. Fizz Buzz">
+<meta property="og:url" content="http://yoursite.com/2017/04/30/LeetCode-Easy-412-Fizz-Buzz/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="在Windows下，打开Git Bash。
-检查SSH Keys设置首先检测电脑现有的 SSH Keys：
-1$ cd ~/.ssh
-如果显示“No such file or directory”，跳到第三步，否则继续。
-备份和移除原来的SSH Keys设置因为已经存在key文件，所以需要备份旧的数据并删除：
-12345$ lsconfig	id_rsa	id_rsa.pub	known_host">
-<meta property="og:updated_time" content="2017-04-25T04:19:07.750Z">
+<meta property="og:description" content="题目Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. F">
+<meta property="og:updated_time" content="2017-05-01T11:52:50.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub中SSH Keys设置">
-<meta name="twitter:description" content="在Windows下，打开Git Bash。
-检查SSH Keys设置首先检测电脑现有的 SSH Keys：
-1$ cd ~/.ssh
-如果显示“No such file or directory”，跳到第三步，否则继续。
-备份和移除原来的SSH Keys设置因为已经存在key文件，所以需要备份旧的数据并删除：
-12345$ lsconfig	id_rsa	id_rsa.pub	known_host">
+<meta name="twitter:title" content="[LeetCode Easy] 412. Fizz Buzz">
+<meta name="twitter:description" content="题目Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. F">
 
 
 
@@ -126,7 +114,7 @@
   };
 </script>
 
-  <title> GitHub中SSH Keys设置 | 琢玉札记 </title>
+  <title> [LeetCode Easy] 412. Fizz Buzz | 琢玉札记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +234,7 @@
             
             
               
-                GitHub中SSH Keys设置
+                [LeetCode Easy] 412. Fizz Buzz
               
             
           </h1>
@@ -258,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-03T12:27:40+08:00" content="2017-04-03">
-              2017-04-03
+            <time itemprop="dateCreated" datetime="2017-04-30T19:52:09+08:00" content="2017-04-30">
+              2017-04-30
             </time>
           </span>
 
@@ -286,23 +274,19 @@
       
 
       
-        <p>在Windows下，打开Git Bash。</p>
-<h3 id="检查SSH-Keys设置"><a href="#检查SSH-Keys设置" class="headerlink" title="检查SSH Keys设置"></a>检查SSH Keys设置</h3><p>首先检测电脑现有的 SSH Keys：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh</div></pre></td></tr></table></figure>
-<p>如果显示“No such file or directory”，跳到第三步，否则继续。</p>
-<h3 id="备份和移除原来的SSH-Keys设置"><a href="#备份和移除原来的SSH-Keys设置" class="headerlink" title="备份和移除原来的SSH Keys设置"></a>备份和移除原来的SSH Keys设置</h3><p>因为已经存在key文件，所以需要备份旧的数据并删除：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">config	id_rsa	id_rsa.pub	known_hosts</div><div class="line">$ mkdir key_backup</div><div class="line">$ cp id_rsa* key_backup</div><div class="line">$ rm id_rsa*</div></pre></td></tr></table></figure>
-<h3 id="生成新的SSH-Keys"><a href="#生成新的SSH-Keys" class="headerlink" title="生成新的SSH Keys"></a>生成新的SSH Keys</h3><p>输入下面的代码，就可以生成新的key文件，我们只需要默认设置就好，一路回车。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</div></pre></td></tr></table></figure>
-<p>系统会提示你输入加密串，用于你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;</div><div class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</div></pre></td></tr></table></figure>
-<h3 id="添加SSH-Keys到GitHub："><a href="#添加SSH-Keys到GitHub：" class="headerlink" title="添加SSH Keys到GitHub："></a>添加SSH Keys到GitHub：</h3><p>在本机设置SSH Keys之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
-<p>用文本编辑工具打开id_rsa.pub文件，如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>输入下面代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
-<h3 id="设置账户信息"><a href="#设置账户信息" class="headerlink" title="设置账户信息"></a>设置账户信息</h3><p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字必须是你的真名，而不是GitHub的昵称。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;yourname&quot;</div><div class="line">$ git config --global user.email &quot;your_email@youremail.com&quot;</div></pre></td></tr></table></figure>
-<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Write a program that outputs the string representation of numbers from 1 to n.</p>
+<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>n = 15,</p>
+<p>Return:<br>[<br>    “1”,<br>    “2”,<br>    “Fizz”,<br>    “4”,<br>    “Buzz”,<br>    “Fizz”,<br>    “7”,<br>    “8”,<br>    “Fizz”,<br>    “Buzz”,<br>    “11”,<br>    “Fizz”,<br>    “13”,<br>    “14”,<br>    “FizzBuzz”<br>]</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按题意要求输出 List。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fizzBuzz</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; ans = <span class="keyword">new</span> LinkedList&lt;String&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span> &amp;&amp; i % <span class="number">5</span> != <span class="number">0</span>) &#123;</div><div class="line">                ans.add(<span class="string">"Fizz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> != <span class="number">0</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">                ans.add(<span class="string">"Buzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">                ans.add(<span class="string">"FizzBuzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                ans.add(i + <span class="string">""</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 5 ms</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>List。</li>
+<li>不利用 % 可优化时间。</li>
+<li>List 可利用  ArrayList 或 LinkedList 类实例化。对于随机访问 get 和 set，ArrayList更优因 LinkedList 需移动指针；对于 add 和 remove 操作，LinkedList 更优因 ArrayList 需移动数据。</li>
+</ul>
+
       
     </div>
 
@@ -323,7 +307,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
         </div>
       
@@ -332,16 +316,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/18/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/04/29/LeetCode-Easy-566-Reshape-the-Matrix/" rel="next" title="[LeetCode Easy] 566. Reshape the Matrix">
+                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 566. Reshape the Matrix
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/LeetCode-Easy-561-Array-Partition-I/" rel="prev" title="[LeetCode Easy] 561. Array Partition I">
-                [LeetCode Easy] 561. Array Partition I <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/30/LeetCode-Easy-463-Island-Perimeter/" rel="prev" title="[LeetCode Easy] 463. Island Perimeter">
+                [LeetCode Easy] 463. Island Perimeter <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -449,7 +433,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查SSH-Keys设置"><span class="nav-number">1.</span> <span class="nav-text">检查SSH Keys设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备份和移除原来的SSH-Keys设置"><span class="nav-number">2.</span> <span class="nav-text">备份和移除原来的SSH Keys设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成新的SSH-Keys"><span class="nav-number">3.</span> <span class="nav-text">生成新的SSH Keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSH-Keys到GitHub："><span class="nav-number">4.</span> <span class="nav-text">添加SSH Keys到GitHub：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置账户信息"><span class="nav-number">6.</span> <span class="nav-text">设置账户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#End"><span class="nav-number">7.</span> <span class="nav-text">End</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">5.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
         </section>
