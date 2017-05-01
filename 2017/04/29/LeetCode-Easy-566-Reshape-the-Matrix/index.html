@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="题目Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one dig">
+<meta name="description" content="题目In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.
+You’re given a matrix represented by a two-dime">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 258. Add Digits">
-<meta property="og:url" content="http://yoursite.com/2017/04/28/LeetCode-Easy-258-Add-Digits/index.html">
+<meta property="og:title" content="[LeetCode Easy] 566. Reshape the Matrix">
+<meta property="og:url" content="http://yoursite.com/2017/04/29/LeetCode-Easy-566-Reshape-the-Matrix/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one dig">
-<meta property="og:updated_time" content="2017-05-01T02:07:07.781Z">
+<meta property="og:description" content="题目In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.
+You’re given a matrix represented by a two-dime">
+<meta property="og:updated_time" content="2017-05-01T03:17:37.511Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 258. Add Digits">
-<meta name="twitter:description" content="题目Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one dig">
+<meta name="twitter:title" content="[LeetCode Easy] 566. Reshape the Matrix">
+<meta name="twitter:description" content="题目In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.
+You’re given a matrix represented by a two-dime">
 
 
 
@@ -117,7 +114,7 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
   };
 </script>
 
-  <title> [LeetCode Easy] 258. Add Digits | 琢玉札记 </title>
+  <title> [LeetCode Easy] 566. Reshape the Matrix | 琢玉札记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +234,7 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
             
             
               
-                [LeetCode Easy] 258. Add Digits
+                [LeetCode Easy] 566. Reshape the Matrix
               
             
           </h1>
@@ -249,8 +246,8 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-28T22:40:00+08:00" content="2017-04-28">
-              2017-04-28
+            <time itemprop="dateCreated" datetime="2017-04-29T11:16:16+08:00" content="2017-04-29">
+              2017-04-29
             </time>
           </span>
 
@@ -277,16 +274,25 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.</p>
-<p>For example:</p>
-<p>Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.</p>
-<p>Follow up:<br>Could you do it without any loop/recursion in O(1) runtime?</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按位相加直到小于10。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addDigits</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (num &gt;= <span class="number">10</span>) &#123;</div><div class="line">            num = num / <span class="number">10</span> + num % <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 2 ms</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.</p>
+<p>You’re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.</p>
+<p>The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.</p>
+<p>If the ‘reshape’ operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input:<br>nums =<br>[[1,2],<br> [3,4]]<br>r = 1, c = 4<br>Output:<br>[[1,2,3,4]]<br>Explanation:<br>The row-traversing of nums is [1,2,3,4]. The new reshaped matrix is a 1 * 4 matrix, fill it row by row by using the previous list.</p>
+<p>Input:<br>nums =<br>[[1,2],<br> [3,4]]<br>r = 2, c = 4<br>Output:<br>[[1,2],<br> [3,4]]<br>Explanation:<br>There is no way to reshape a 2 <em> 2 matrix to a 2 </em> 4 matrix. So output the original matrix.</p>
+<p>Note:</p>
+<ol>
+<li><p>The height and width of the given matrix is in range [1, 100]</p>
+</li>
+<li><p>The given r and c are all positive.</p>
+</li>
+</ol>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按题意要求输出新矩阵或原矩阵。时间复杂度O(nm)。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] matrixReshape(<span class="keyword">int</span>[][] nums, <span class="keyword">int</span> r, <span class="keyword">int</span> c) &#123;</div><div class="line">        <span class="keyword">if</span> (nums.length * nums[<span class="number">0</span>].length != r * c || (nums.length == r &amp;&amp; nums[<span class="number">0</span>].length == c)) &#123;</div><div class="line">            <span class="keyword">return</span> nums;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">        	<span class="keyword">int</span>[][] ans = <span class="keyword">new</span> <span class="keyword">int</span>[r][c];</div><div class="line">        	<span class="keyword">int</span> sum = nums.length * nums[<span class="number">0</span>].length;</div><div class="line">        	<span class="keyword">int</span> rr = <span class="number">0</span>;</div><div class="line">        	<span class="keyword">int</span> cc = <span class="number">0</span>;</div><div class="line">        	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i ++) &#123;</div><div class="line">        		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums[<span class="number">0</span>].length; j++) &#123;</div><div class="line">        			ans[rr][cc] = nums[i][j];</div><div class="line">        			cc ++;</div><div class="line">        			<span class="keyword">if</span> (cc == sum / r) &#123;</div><div class="line">        				rr ++;</div><div class="line">        				cc = <span class="number">0</span>;</div><div class="line">        			&#125;</div><div class="line">        		&#125;</div><div class="line">        	&#125;</div><div class="line">        	<span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 7 ms</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>数学。</li>
-<li>存在 O(1) 算法。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addDigits</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> <span class="number">1</span> + (num - <span class="number">1</span>) % <span class="number">9</span>; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<li>数组。</li>
+<li>新建矩阵可写为<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; i++) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j &lt; c; j++, k++) &#123;</div><div class="line">        ans[i][j] = nums[k / nums[<span class="number">0</span>].length][k % nums[<span class="number">0</span>].length];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -318,17 +324,13 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/27/LeetCode-Easy-520-Detect-Capital/" rel="next" title="[LeetCode Easy] 520. Detect Capital">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 520. Detect Capital
+              <a href="/2017/04/29/LeetCode-Easy-383-Ransom-Note/" rel="next" title="[LeetCode Easy] 383. Ransom Note">
+                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 383. Ransom Note
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/28/LeetCode-Easy-506-Relative-Ranks/" rel="prev" title="[LeetCode Easy] 506. Relative Ranks">
-                [LeetCode Easy] 506. Relative Ranks <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -435,7 +437,7 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">4.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">5.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
         </section>
