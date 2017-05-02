@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="题目Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. F">
+<meta name="description" content="题目Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Coul">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 412. Fizz Buzz">
-<meta property="og:url" content="http://yoursite.com/2017/04/30/LeetCode-Easy-412-Fizz-Buzz/index.html">
+<meta property="og:title" content="[LeetCode Easy] 448. Find All Numbers Disappeared in an Array">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/LeetCode-Easy-448-Find-All-Numbers-Disappeared-in-an-Array/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. F">
-<meta property="og:updated_time" content="2017-05-01T11:52:50.439Z">
+<meta property="og:description" content="题目Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Coul">
+<meta property="og:updated_time" content="2017-05-02T15:16:33.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 412. Fizz Buzz">
-<meta name="twitter:description" content="题目Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. F">
+<meta name="twitter:title" content="[LeetCode Easy] 448. Find All Numbers Disappeared in an Array">
+<meta name="twitter:description" content="题目Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Coul">
 
 
 
@@ -114,7 +117,7 @@ But for multiples of three it should output “Fizz” instead of the number and
   };
 </script>
 
-  <title> [LeetCode Easy] 412. Fizz Buzz | 琢玉札记 </title>
+  <title> [LeetCode Easy] 448. Find All Numbers Disappeared in an Array | 琢玉札记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +237,7 @@ But for multiples of three it should output “Fizz” instead of the number and
             
             
               
-                [LeetCode Easy] 412. Fizz Buzz
+                [LeetCode Easy] 448. Find All Numbers Disappeared in an Array
               
             
           </h1>
@@ -246,8 +249,8 @@ But for multiples of three it should output “Fizz” instead of the number and
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-30T19:52:09+08:00" content="2017-04-30">
-              2017-04-30
+            <time itemprop="dateCreated" datetime="2017-05-02T23:16:16+08:00" content="2017-05-02">
+              2017-05-02
             </time>
           </span>
 
@@ -274,17 +277,17 @@ But for multiples of three it should output “Fizz” instead of the number and
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Write a program that outputs the string representation of numbers from 1 to n.</p>
-<p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>n = 15,</p>
-<p>Return:<br>[<br>    “1”,<br>    “2”,<br>    “Fizz”,<br>    “4”,<br>    “Buzz”,<br>    “Fizz”,<br>    “7”,<br>    “8”,<br>    “Fizz”,<br>    “Buzz”,<br>    “11”,<br>    “Fizz”,<br>    “13”,<br>    “14”,<br>    “FizzBuzz”<br>]</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按题意要求输出 List。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">fizzBuzz</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; ans = <span class="keyword">new</span> LinkedList&lt;String&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span> &amp;&amp; i % <span class="number">5</span> != <span class="number">0</span>) &#123;</div><div class="line">                ans.add(<span class="string">"Fizz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> != <span class="number">0</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">                ans.add(<span class="string">"Buzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">                ans.add(<span class="string">"FizzBuzz"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                ans.add(i + <span class="string">""</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 5 ms</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
+<p>Find all the elements of [1, n] inclusive that do not appear in this array.</p>
+<p>Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input:<br>[4,3,2,7,8,2,3,1]</p>
+<p>Output:<br>[5,6]</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>用数组记录已出现的数字，再遍历下1 ~ n，找出未出现的数字。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findDisappearedNumbers</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">int</span>[] flag = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length + <span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.length; i++) &#123;</div><div class="line">            flag[nums[i - <span class="number">1</span>]] = <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(flag[i] == <span class="number">0</span>) &#123;</div><div class="line">                list.add(i);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> list;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 18 ms</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>List。</li>
-<li>不利用 % 可优化时间。</li>
-<li>List 可利用  ArrayList 或 LinkedList 类实例化。对于随机访问 get 和 set，ArrayList更优因 LinkedList 需移动指针；对于 add 和 remove 操作，LinkedList 更优因 ArrayList 需移动数据。</li>
+<li>数组。</li>
+<li>list.remove 操作会超时，待写出最优解。</li>
 </ul>
 
       
@@ -316,17 +319,13 @@ But for multiples of three it should output “Fizz” instead of the number and
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/29/LeetCode-Easy-566-Reshape-the-Matrix/" rel="next" title="[LeetCode Easy] 566. Reshape the Matrix">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 566. Reshape the Matrix
+              <a href="/2017/05/02/LeetCode-Easy-485-Max-Consecutive-Ones/" rel="next" title="[LeetCode Easy] 485. Max Consecutive Ones">
+                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 485. Max Consecutive Ones
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/30/LeetCode-Easy-463-Island-Perimeter/" rel="prev" title="[LeetCode Easy] 463. Island Perimeter">
-                [LeetCode Easy] 463. Island Perimeter <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
