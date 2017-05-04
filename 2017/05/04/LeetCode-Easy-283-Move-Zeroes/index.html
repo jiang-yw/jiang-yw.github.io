@@ -84,18 +84,19 @@
 
 
 
-<meta name="description" content="题目You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completel">
+<meta name="description" content="题目Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12], after calling your f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 463. Island Perimeter">
-<meta property="og:url" content="http://yoursite.com/2017/04/30/LeetCode-Easy-463-Island-Perimeter/index.html">
+<meta property="og:title" content="[LeetCode Easy] 283. Move Zeroes">
+<meta property="og:url" content="http://yoursite.com/2017/05/04/LeetCode-Easy-283-Move-Zeroes/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completel">
-<meta property="og:image" content="https://leetcode.com/static/images/problemset/island.png">
-<meta property="og:updated_time" content="2017-05-01T12:33:01.793Z">
+<meta property="og:description" content="题目Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12], after calling your f">
+<meta property="og:updated_time" content="2017-05-04T08:48:03.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 463. Island Perimeter">
-<meta name="twitter:description" content="题目You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completel">
-<meta name="twitter:image" content="https://leetcode.com/static/images/problemset/island.png">
+<meta name="twitter:title" content="[LeetCode Easy] 283. Move Zeroes">
+<meta name="twitter:description" content="题目Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12], after calling your f">
 
 
 
@@ -113,7 +114,7 @@
   };
 </script>
 
-  <title> [LeetCode Easy] 463. Island Perimeter | 琢玉札记 </title>
+  <title> [LeetCode Easy] 283. Move Zeroes | 琢玉札记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -233,7 +234,7 @@
             
             
               
-                [LeetCode Easy] 463. Island Perimeter
+                [LeetCode Easy] 283. Move Zeroes
               
             
           </h1>
@@ -245,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-30T20:32:26+08:00" content="2017-04-30">
-              2017-04-30
+            <time itemprop="dateCreated" datetime="2017-05-04T16:47:23+08:00" content="2017-05-04">
+              2017-05-04
             </time>
           </span>
 
@@ -273,16 +274,18 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn’t have “lakes” (water inside that isn’t connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don’t exceed 100. Determine the perimeter of the island.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>[[0,1,0,0],<br> [1,1,1,0],<br> [0,1,0,0],<br> [1,1,0,0]]</p>
-<p>Answer: 16<br>Explanation: The perimeter is the 16 yellow stripes in the image below:</p>
-<p> <img src="https://leetcode.com/static/images/problemset/island.png" alt="avatar"></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>求岛屿的边长，记录值为1的方格数量并去除重边即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">islandPerimeter</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] dx = &#123;-<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</div><div class="line">        <span class="keyword">int</span>[] dy = &#123;<span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.length; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid[<span class="number">0</span>].length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>) &#123;</div><div class="line">                    ans += <span class="number">4</span>;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</div><div class="line">                        <span class="keyword">int</span> x = i + dx[k];</div><div class="line">                        <span class="keyword">int</span> y = j + dy[k];</div><div class="line">                        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= grid.length || y &lt; <span class="number">0</span> || y &gt;= grid[<span class="number">0</span>].length || grid[x][y] == <span class="number">0</span>) &#123;</div><div class="line">                            <span class="keyword">continue</span>;</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">else</span> &#123;</div><div class="line">                            ans --;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 156 ms</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
+<p>Note:</p>
+<pre><code>1. You must do this in-place without making a copy of the array.
+
+2. Minimize the total number of operations.
+</code></pre><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>将数组非零位向前提，后面位清零。复杂度O(n)。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] != <span class="number">0</span>) &#123;</div><div class="line">                nums[tmp++] = nums[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (tmp &lt; nums.length) &#123;</div><div class="line">            nums[tmp++] = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 0 ms</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>LeetCode Tag: Hash Table (也许是DFS + Hash)。</li>
-<li>不必判断四周，只判断左和上即可。</li>
+<li>数组。</li>
+<li>可利用双指针在一个循环中完成操作。</li>
 </ul>
 
       
@@ -314,17 +317,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/30/LeetCode-Easy-412-Fizz-Buzz/" rel="next" title="[LeetCode Easy] 412. Fizz Buzz">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 412. Fizz Buzz
+              <a href="/2017/05/04/LeetCode-Easy-371-Sum-of-Two-Integers/" rel="next" title="[LeetCode Easy] 371. Sum of Two Integers">
+                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 371. Sum of Two Integers
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/01/LeetCode-Easy-292-Nim-Game/" rel="prev" title="[LeetCode Easy] 292. Nim Game">
-                [LeetCode Easy] 292. Nim Game <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -431,7 +430,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">5.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">4.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
         </section>
