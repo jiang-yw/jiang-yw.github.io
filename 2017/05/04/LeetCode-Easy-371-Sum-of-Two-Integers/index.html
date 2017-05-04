@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="题目Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one dig">
+<meta name="description" content="题目Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+样例Given a = 1 and b = 2, return 3.
+思路利用位运算计算 a + b，对于非进位加法可利用异或，即 a ^ b，当 a &amp;amp; b == 1 时考虑进位，左移一位。递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 258. Add Digits">
-<meta property="og:url" content="http://yoursite.com/2017/04/28/LeetCode-Easy-258-Add-Digits/index.html">
+<meta property="og:title" content="[LeetCode Easy] 371. Sum of Two Integers">
+<meta property="og:url" content="http://yoursite.com/2017/05/04/LeetCode-Easy-371-Sum-of-Two-Integers/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one dig">
-<meta property="og:updated_time" content="2017-05-01T02:07:07.781Z">
+<meta property="og:description" content="题目Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+样例Given a = 1 and b = 2, return 3.
+思路利用位运算计算 a + b，对于非进位加法可利用异或，即 a ^ b，当 a &amp;amp; b == 1 时考虑进位，左移一位。递归">
+<meta property="og:updated_time" content="2017-05-04T08:14:36.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 258. Add Digits">
-<meta name="twitter:description" content="题目Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one dig">
+<meta name="twitter:title" content="[LeetCode Easy] 371. Sum of Two Integers">
+<meta name="twitter:description" content="题目Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+样例Given a = 1 and b = 2, return 3.
+思路利用位运算计算 a + b，对于非进位加法可利用异或，即 a ^ b，当 a &amp;amp; b == 1 时考虑进位，左移一位。递归">
 
 
 
@@ -117,7 +117,7 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
   };
 </script>
 
-  <title> [LeetCode Easy] 258. Add Digits | 琢玉札记 </title>
+  <title> [LeetCode Easy] 371. Sum of Two Integers | 琢玉札记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +237,7 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
             
             
               
-                [LeetCode Easy] 258. Add Digits
+                [LeetCode Easy] 371. Sum of Two Integers
               
             
           </h1>
@@ -249,8 +249,8 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-28T22:40:00+08:00" content="2017-04-28">
-              2017-04-28
+            <time itemprop="dateCreated" datetime="2017-05-04T16:13:49+08:00" content="2017-05-04">
+              2017-05-04
             </time>
           </span>
 
@@ -277,16 +277,13 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.</p>
-<p>For example:</p>
-<p>Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.</p>
-<p>Follow up:<br>Could you do it without any loop/recursion in O(1) runtime?</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按位相加直到小于10。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addDigits</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (num &gt;= <span class="number">10</span>) &#123;</div><div class="line">            num = num / <span class="number">10</span> + num % <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 2 ms</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Given a = 1 and b = 2, return 3.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>利用位运算计算 a + b，对于非进位加法可利用异或，即 a ^ b，当 a &amp; b == 1 时考虑进位，左移一位。递归调用 getSum 函数，进位为 0，返回答案。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    	<span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</div><div class="line">    		<span class="keyword">return</span> a;</div><div class="line">    	&#125;</div><div class="line">    	<span class="keyword">int</span> sum = a ^ b;</div><div class="line">    	<span class="keyword">int</span> carry = (a &amp; b) &lt;&lt; <span class="number">1</span>;</div><div class="line">    	<span class="keyword">return</span> getSum(sum, carry);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 0 ms</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>数学。</li>
-<li>存在 O(1) 算法。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addDigits</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> <span class="number">1</span> + (num - <span class="number">1</span>) % <span class="number">9</span>; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<li>位运算。</li>
 </ul>
 
       
@@ -318,17 +315,13 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/27/LeetCode-Easy-520-Detect-Capital/" rel="next" title="[LeetCode Easy] 520. Detect Capital">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 520. Detect Capital
+              <a href="/2017/05/03/LeetCode-Easy-389-Find-the-Difference/" rel="next" title="[LeetCode Easy] 389. Find the Difference">
+                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 389. Find the Difference
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/28/LeetCode-Easy-506-Relative-Ranks/" rel="prev" title="[LeetCode Easy] 506. Relative Ranks">
-                [LeetCode Easy] 506. Relative Ranks <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -435,7 +428,7 @@ Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">4.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">5.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
         </section>
