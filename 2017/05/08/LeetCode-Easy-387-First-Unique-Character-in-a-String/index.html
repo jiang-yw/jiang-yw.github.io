@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="题目You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1’s elements in the corresponding places of nums2.">
+<meta name="description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.
+样例s = “leetcode”return 0.
+s = “loveleetcode”,return 2.
+Note: You may assume the st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 496. Next Greater Element I">
-<meta property="og:url" content="http://yoursite.com/2017/04/26/LeetCode-Easy-496-Next-Greater-Element-I/index.html">
+<meta property="og:title" content="[LeetCode Easy] 387. First Unique Character in a String">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/LeetCode-Easy-387-First-Unique-Character-in-a-String/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1’s elements in the corresponding places of nums2.">
-<meta property="og:updated_time" content="2017-04-26T14:10:24.179Z">
+<meta property="og:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.
+样例s = “leetcode”return 0.
+s = “loveleetcode”,return 2.
+Note: You may assume the st">
+<meta property="og:updated_time" content="2017-05-26T14:20:35.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 496. Next Greater Element I">
-<meta name="twitter:description" content="题目You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1’s elements in the corresponding places of nums2.">
+<meta name="twitter:title" content="[LeetCode Easy] 387. First Unique Character in a String">
+<meta name="twitter:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.
+样例s = “leetcode”return 0.
+s = “loveleetcode”,return 2.
+Note: You may assume the st">
 
 
 
@@ -111,7 +120,7 @@
   };
 </script>
 
-  <title> [LeetCode Easy] 496. Next Greater Element I | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> [LeetCode Easy] 387. First Unique Character in a String | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +240,7 @@
             
             
               
-                [LeetCode Easy] 496. Next Greater Element I
+                [LeetCode Easy] 387. First Unique Character in a String
               
             
           </h1>
@@ -243,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-26T22:09:26+08:00" content="2017-04-26">
-              2017-04-26
+            <time itemprop="dateCreated" datetime="2017-05-08T22:19:38+08:00" content="2017-05-08">
+              2017-05-08
             </time>
           </span>
 
@@ -271,21 +280,15 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1’s elements in the corresponding places of nums2.</p>
-<p>The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input: nums1 = [4,1,2], nums2 = [1,3,4,2].<br>Output: [-1,3,-1]<br>Explanation:<br>    For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.<br>    For number 1 in the first array, the next greater number for it in the second array is 3.<br>    For number 2 in the first array, there is no next greater number for it in the second array, so output -1.</p>
-<p>Input: nums1 = [2,4], nums2 = [1,2,3,4].<br>Output: [3,-1]<br>Explanation:<br>    For number 2 in the first array, the next greater number for it in the second array is 3.<br>    For number 4 in the first array, there is no next greater number for it in the second array, so output -1.</p>
-<p>Note:</p>
-<ol>
-<li>All elements in nums1 and nums2 are unique.</li>
-<li>The length of both nums1 and nums2 would not exceed 1000.</li>
-</ol>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>题意理解拙计，找到找出所有nums1中元素在nums2中相对应位置之后的第一个较大数，不存在则表示为-1。</p>
-<p>按题意遍历即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] nextGreaterElement(<span class="keyword">int</span>[] findNums, <span class="keyword">int</span>[] nums) &#123;</div><div class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[findNums.length];</div><div class="line">        <span class="keyword">int</span> i, j, tmp, pos;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; findNums.length; i++) &#123;</div><div class="line">            tmp = -<span class="number">1</span>;</div><div class="line">            pos = -<span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; nums.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (findNums[i] == nums[j]) &#123;</div><div class="line">                    pos = j;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (findNums[i] &lt; nums[j] &amp;&amp; pos != -<span class="number">1</span>) &#123;</div><div class="line">                    tmp = nums[j];</div><div class="line">                    pos = j;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            ans[i] = tmp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 27 ms</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>s = “leetcode”<br>return 0.</p>
+<p>s = “loveleetcode”,<br>return 2.</p>
+<p>Note: You may assume the string contain only lowercase letters.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>暴力做法，两次遍历数组找出第一次出现的字母。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] sum = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</div><div class="line">        <span class="keyword">int</span> ans = -<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">            sum[s.charAt(i) - <span class="string">'a'</span>] ++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span> (sum[s.charAt(i) - <span class="string">'a'</span>] == <span class="number">1</span>) &#123;</div><div class="line">                ans = i;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 28 ms</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>可使用栈操作。</li>
+<li>可简化代码 <code>if(s.lastIndexOf(s.charAt(i)) == s.indexOf(s.charAt(i))) return i;</code> 其中 <code>lastIndexOf</code> 、<code>indexOf</code> 分别记录字符最后一次和首次出现位置。</li>
 </ul>
 
       
@@ -317,17 +320,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/26/LeetCode-Easy-344-Reverse-String/" rel="next" title="[LeetCode Easy] 344. Reverse String">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 344. Reverse String
+              <a href="/2017/05/08/LeetCode-Easy-122-Best-Time-to-Buy-and-Sell-Stock-II/" rel="next" title="[LeetCode Easy] 122. Best Time to Buy and Sell Stock II">
+                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 122. Best Time to Buy and Sell Stock II
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/27/LeetCode-Easy-136-Single-Number/" rel="prev" title="[LeetCode Easy] 136. Single Number">
-                [LeetCode Easy] 136. Single Number <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
