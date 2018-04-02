@@ -230,6 +230,141 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/02/《推荐系统实践》读书笔记（1）/" itemprop="url">
+                  《推荐系统实践》读书笔记（1）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-02T22:07:32+08:00" content="2018-04-02">
+              2018-04-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学术论文把推荐问题看做评分预测问题，而实际应用中最常见的是 TopN 推荐。</p>
+</blockquote>
+<h3 id="推荐算法"><a href="#推荐算法" class="headerlink" title="推荐算法"></a>推荐算法</h3><ol>
+<li>社会化推荐（social recommendation）</li>
+<li>基于内容推荐（content-based filtering）</li>
+<li>基于协同过滤的推荐（collaborative filtering）：历史兴趣相似的用户</li>
+</ol>
+<h3 id="推荐系统实验方法"><a href="#推荐系统实验方法" class="headerlink" title="推荐系统实验方法"></a>推荐系统实验方法</h3><ul>
+<li><p>离线实验（offline experiment）</p>
+<ul>
+<li>步骤<br>  (1)通过日志系统获得用户行为数据，并按照一定格式生成一个标准的数据集<br>  (2)将数据集按照一定的规则分成训练集和测试集<br>  (3)在训练集上训练用户兴趣模型，在测试集上进行预测<br>  (4)通过事先定义的离线指标评测算法在测试集上预测结果</li>
+<li>优缺点<br>|优点|缺点|<br>|——|——|<br>|不需要用户有对实际系统的控制权|无法计算商业上关心的指标|<br>|不需要用户参与实验|离线实验的指标和商业指标存在差距|<br>|速度快，可以测试大量算法|——|  </li>
+</ul>
+</li>
+<li><p>用户调查（user study）</p>
+</li>
+<li>在线实验（online experiment）<ul>
+<li>AB 测验：通过一定的规则将用户随机分成几组，并对不同组的用户采用不同的算法，通过统计不同组用户的不同评测指标来比较不同算法</li>
+</ul>
+</li>
+</ul>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><ol>
+<li>用户满意度<br> 无法离线计算，只能通过用户调查或在线实验获得。</li>
+<li>预测准确度<br> 可通过离线计算。<br> 2.1 评分预测<pre><code>通过`均方根误差（RMSE）`和`平均绝对误差（MAE）` 计算。
+</code></pre> 2.2 TopN 推荐<pre><code>通过`准确率（precision）`/`召回率（recall）`度量。
+有时，为全面评测 TopN 推荐的准确率和召回率，选取不同的推荐列表长度 N，计算出一组`准确率/召回率`，然后画出`准确率/召回率曲线（precision/recall curve）`。
+</code></pre></li>
+<li>覆盖率（coverage）<br> 最简单定义为推荐系统能够推荐出来的物品占总物品集合的比例。<br> 两个著名指标：<code>信息熵</code>和<code>基尼系数</code>。</li>
+<li>多样性</li>
+<li>新颖性</li>
+<li>惊喜度（serendipity）</li>
+<li>信任度（trust）</li>
+<li>实时性</li>
+<li>健壮性</li>
+<li>商业目标</li>
+</ol>
+<h3 id="评价维度"><a href="#评价维度" class="headerlink" title="评价维度"></a>评价维度</h3><ol>
+<li>用户维度</li>
+<li>物品维度</li>
+<li>时间维度</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/LeetCode-Easy-171-Excel-Sheet-Column-Number/" itemprop="url">
                   [LeetCode Easy] 171. Excel Sheet Column Number
                 </a>
@@ -1167,113 +1302,6 @@ AB -&gt; 28
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/05/LeetCode-Easy-575-Distribute-Candies/" itemprop="url">
-                  [LeetCode Easy] 575. Distribute Candies
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-05T22:37:12+08:00" content="2017-05-05">
-              2017-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input: candies = [1,1,2,2,3,3]<br>Output: 3<br>Explanation:<br>There are three different kinds of candies (1, 2 and 3), and two candies for each kind.<br>Optimal distribution: The sister has candies [1,2,3] and the brother has candies [1,2,3], too.<br>The sister has three different kinds of candies. </p>
-<p>Input: candies = [1,1,2,3]<br>Output: 2<br>Explanation: For example, the sister has candies [2,3] and the brother has candies [1,1].<br>The sister has two different kinds of candies, the brother has only one kind of candies. </p>
-<p>Note:</p>
-<ol>
-<li>The length of the given array is in range [2, 10,000], and will be even.</li>
-<li>The number in given array is in range [-100,000, 100,000].</li>
-</ol>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>记录数组出现数字种类，若超过数组长度的一半，而可分到数组长度一半种类数的糖；否则可得到实际出现的种类数的糖。考虑数字可能存在负数。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">distributeCandies</span><span class="params">(<span class="keyword">int</span>[] candies)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] sum = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">200001</span>];</div><div class="line">        <span class="keyword">int</span> sumcandies = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : candies) &#123;</div><div class="line">            <span class="keyword">if</span> (sum[i + <span class="number">100000</span>] == <span class="number">0</span>) &#123;</div><div class="line">                sumcandies ++;</div><div class="line">            &#125;</div><div class="line">            sum[i + <span class="number">100000</span>] ++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (sumcandies &gt;= candies.length / <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> candies.length / <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> sumcandies;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 57 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>可用哈希表操作。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1319,7 +1347,7 @@ AB -&gt; 28
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1329,7 +1357,7 @@ AB -&gt; 28
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
