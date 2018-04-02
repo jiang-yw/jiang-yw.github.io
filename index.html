@@ -283,14 +283,36 @@
 <li>基于协同过滤的推荐（collaborative filtering）：历史兴趣相似的用户</li>
 </ol>
 <h3 id="推荐系统实验方法"><a href="#推荐系统实验方法" class="headerlink" title="推荐系统实验方法"></a>推荐系统实验方法</h3><ul>
-<li><p>离线实验（offline experiment）</p>
-<ul>
+<li>离线实验（offline experiment）<ul>
 <li>步骤<br>  (1)通过日志系统获得用户行为数据，并按照一定格式生成一个标准的数据集<br>  (2)将数据集按照一定的规则分成训练集和测试集<br>  (3)在训练集上训练用户兴趣模型，在测试集上进行预测<br>  (4)通过事先定义的离线指标评测算法在测试集上预测结果</li>
-<li>优缺点<br>|优点|缺点|<br>|——|——|<br>|不需要用户有对实际系统的控制权|无法计算商业上关心的指标|<br>|不需要用户参与实验|离线实验的指标和商业指标存在差距|<br>|速度快，可以测试大量算法|——|  </li>
+<li>优缺点</li>
 </ul>
 </li>
-<li><p>用户调查（user study）</p>
-</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">不需要用户有对实际系统的控制权</td>
+<td style="text-align:left">无法计算商业上关心的指标</td>
+</tr>
+<tr>
+<td style="text-align:left">不需要用户参与实验</td>
+<td style="text-align:left">离线实验的指标和商业指标存在差距</td>
+</tr>
+<tr>
+<td style="text-align:left">速度快，可以测试大量算法</td>
+<td style="text-align:left">——</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>用户调查（user study）</li>
 <li>在线实验（online experiment）<ul>
 <li>AB 测验：通过一定的规则将用户随机分成几组，并对不同组的用户采用不同的算法，通过统计不同组用户的不同评测指标来比较不同算法</li>
 </ul>
@@ -298,10 +320,7 @@
 </ul>
 <h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><ol>
 <li>用户满意度<br> 无法离线计算，只能通过用户调查或在线实验获得。</li>
-<li>预测准确度<br> 可通过离线计算。<br> 2.1 评分预测<pre><code>通过`均方根误差（RMSE）`和`平均绝对误差（MAE）` 计算。
-</code></pre> 2.2 TopN 推荐<pre><code>通过`准确率（precision）`/`召回率（recall）`度量。
-有时，为全面评测 TopN 推荐的准确率和召回率，选取不同的推荐列表长度 N，计算出一组`准确率/召回率`，然后画出`准确率/召回率曲线（precision/recall curve）`。
-</code></pre></li>
+<li>预测准确度<br> 可通过离线计算。<br> 2.1 评分预测<br> 通过<code>均方根误差（RMSE）</code>和<code>平均绝对误差（MAE）</code> 计算。<br> 2.2 TopN 推荐<br> 通过<code>准确率（precision）</code>/<code>召回率（recall）</code>度量。<br> 有时，为全面评测 TopN 推荐的准确率和召回率，选取不同的推荐列表长度 N，计算出一组<code>准确率/召回率</code>，然后画出<code>准确率/召回率曲线（precision/recall curve）</code>。</li>
 <li>覆盖率（coverage）<br> 最简单定义为推荐系统能够推荐出来的物品占总物品集合的比例。<br> 两个著名指标：<code>信息熵</code>和<code>基尼系数</code>。</li>
 <li>多样性</li>
 <li>新颖性</li>
