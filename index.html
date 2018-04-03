@@ -281,11 +281,77 @@
 <li>隐性反馈行为（implicit feedback）：最具代表性：页面浏览行为。</li>
 </ol>
 </li>
-<li><p>显隐性反馈数据比较：<br>|–|显性反馈数据|隐性反馈数据|<br>|:-|:——————|:—————–|<br>|用户兴趣|明确|不明确|<br>|数量|较少|庞大|<br>|存储|数据库|分布式文件系统|<br>|实时读取|实时|有延迟|<br>|正负反馈|都有|只有正反馈|</p>
-</li>
-<li><p>用户行为的统一表示<br>|user id|产生行为的用户唯一标识|<br>|:——–|:———————————|<br>|item id|产生行为的对象唯一标识|<br>|behavior type|行为的种类|<br>|context|产生行为的上下文，时间和地点等|<br>|behavior weight|行为的权重|<br>|behavior content|行为的内容|</p>
-</li>
+<li>显隐性反馈数据比较：</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">–</th>
+<th style="text-align:left">显性反馈数据</th>
+<th style="text-align:left">隐性反馈数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">用户兴趣</td>
+<td style="text-align:left">明确</td>
+<td style="text-align:left">不明确</td>
+</tr>
+<tr>
+<td style="text-align:left">数量</td>
+<td style="text-align:left">较少</td>
+<td style="text-align:left">庞大</td>
+</tr>
+<tr>
+<td style="text-align:left">存储</td>
+<td style="text-align:left">数据库</td>
+<td style="text-align:left">分布式文件系统</td>
+</tr>
+<tr>
+<td style="text-align:left">实时读取</td>
+<td style="text-align:left">实时</td>
+<td style="text-align:left">有延迟</td>
+</tr>
+<tr>
+<td style="text-align:left">正负反馈</td>
+<td style="text-align:left">都有</td>
+<td style="text-align:left">只有正反馈</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>用户行为的统一表示</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">user id</th>
+<th style="text-align:left">产生行为的用户唯一标识</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">item id</td>
+<td style="text-align:left">产生行为的对象唯一标识</td>
+</tr>
+<tr>
+<td style="text-align:left">behavior type</td>
+<td style="text-align:left">行为的种类</td>
+</tr>
+<tr>
+<td style="text-align:left">context</td>
+<td style="text-align:left">产生行为的上下文，时间和地点等</td>
+</tr>
+<tr>
+<td style="text-align:left">behavior weight</td>
+<td style="text-align:left">行为的权重</td>
+</tr>
+<tr>
+<td style="text-align:left">behavior content</td>
+<td style="text-align:left">行为的内容</td>
+</tr>
+</tbody>
+</table>
 <h3 id="用户行为分析"><a href="#用户行为分析" class="headerlink" title="用户行为分析"></a>用户行为分析</h3><ul>
 <li>长尾分布：用户越活跃，越倾向于浏览冷门的商品。</li>
 <li>协同过滤算法：基于邻域的方法（neighborhood-based）、隐语义模型（latent factor model）、基于图的随机游走算法（random walk on graph）</li>
