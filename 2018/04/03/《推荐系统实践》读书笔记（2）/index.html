@@ -1,0 +1,593 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Recommender System," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="用户行为数据
+原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。
+用户行为一般分为两种：
+显性反馈行为（explicit feedback）：主要方式为评分或喜欢/不喜欢。
+隐性反馈行为（implicit feedback）：最具代表性：页面浏览行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《推荐系统实践》读书笔记（2）">
+<meta property="og:url" content="http://yoursite.com/2018/04/03/《推荐系统实践》读书笔记（2）/index.html">
+<meta property="og:site_name" content="琢玉札记">
+<meta property="og:description" content="用户行为数据
+原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。
+用户行为一般分为两种：
+显性反馈行为（explicit feedback）：主要方式为评分或喜欢/不喜欢。
+隐性反馈行为（implicit feedback）：最具代表性：页面浏览行">
+<meta property="og:updated_time" content="2018-04-03T14:47:43.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《推荐系统实践》读书笔记（2）">
+<meta name="twitter:description" content="用户行为数据
+原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。
+用户行为一般分为两种：
+显性反馈行为（explicit feedback）：主要方式为评分或喜欢/不喜欢。
+隐性反馈行为（implicit feedback）：最具代表性：页面浏览行">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《推荐系统实践》读书笔记（2） | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">琢玉札记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《推荐系统实践》读书笔记（2）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-03T22:46:58+08:00" content="2018-04-03">
+              2018-04-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="用户行为数据"><a href="#用户行为数据" class="headerlink" title="用户行为数据"></a>用户行为数据</h3><ul>
+<li>原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。</li>
+<li>用户行为一般分为两种：<ol>
+<li>显性反馈行为（explicit feedback）：主要方式为评分或喜欢/不喜欢。</li>
+<li>隐性反馈行为（implicit feedback）：最具代表性：页面浏览行为。</li>
+</ol>
+</li>
+<li><p>显隐性反馈数据比较：<br>|–|显性反馈数据|隐性反馈数据|<br>|:-|:——————|:—————–|<br>|用户兴趣|明确|不明确|<br>|数量|较少|庞大|<br>|存储|数据库|分布式文件系统|<br>|实时读取|实时|有延迟|<br>|正负反馈|都有|只有正反馈|</p>
+</li>
+<li><p>用户行为的统一表示<br>|user id|产生行为的用户唯一标识|<br>|:——–|:———————————|<br>|item id|产生行为的对象唯一标识|<br>|behavior type|行为的种类|<br>|context|产生行为的上下文，时间和地点等|<br>|behavior weight|行为的权重|<br>|behavior content|行为的内容|</p>
+</li>
+</ul>
+<h3 id="用户行为分析"><a href="#用户行为分析" class="headerlink" title="用户行为分析"></a>用户行为分析</h3><ul>
+<li>长尾分布：用户越活跃，越倾向于浏览冷门的商品。</li>
+<li>协同过滤算法：基于邻域的方法（neighborhood-based）、隐语义模型（latent factor model）、基于图的随机游走算法（random walk on graph）</li>
+</ul>
+<h4 id="协同过滤算法"><a href="#协同过滤算法" class="headerlink" title="协同过滤算法"></a>协同过滤算法</h4><h5 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h5><p>利用 MovieLens 数据集（忽略评分记录）研究隐反馈数据集 TopN 推荐问题，即预测用户会不会对某部电影评分，而非预测用户对某电影评多少分。</p>
+<h5 id="离线实验设计"><a href="#离线实验设计" class="headerlink" title="离线实验设计"></a>离线实验设计</h5><ol>
+<li>将用户行为数据集按均匀分布随机分成M份，选一份为测试集，其余为训练集。</li>
+<li>在训练集上建立用户兴趣模型，并在测试集上对用户行为进行预测，统计出相应的评价指标。</li>
+<li>为保证指标不过拟合，需进行 M 次实验，并每次选用不同测试集，将 M 次实验测出的评测指标的平均值作为最终评测指标。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将数据集随机分成训练集和测试集</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">SplitData</span><span class="params">(data, M, k, seed)</span>:</span></div><div class="line">    test = []</div><div class="line">    train = []</div><div class="line">    random.seed(seed)</div><div class="line">    <span class="keyword">for</span> user, item <span class="keyword">in</span> data:</div><div class="line">        <span class="keyword">if</span> random.randint(<span class="number">0</span>, M) == k:</div><div class="line">            test.append([user, item])</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            train.append([user, item])</div><div class="line">    <span class="keyword">return</span> train, test</div></pre></td></tr></table></figure>
+<h5 id="评测指标"><a href="#评测指标" class="headerlink" title="评测指标"></a>评测指标</h5><ol>
+<li>召回率：描述有多少比例的用户-物品评分记录包含在最终的推荐列表中。</li>
+<li>准确率：描述最终的推荐列表中有多少比例是发生在用户-物品评分记录。</li>
+<li>覆盖率：反映推荐算法发掘长为的能力，覆盖率越高，越能将长尾中的物品推荐给用户。</li>
+<li>新颖度：对每个物品的流行度取对数，计算平均流行度。（因物品流行度分布满足长尾分布，取对数使得流行度平均值更稳定。）</li>
+</ol>
+<h5 id="基于邻域的算法"><a href="#基于邻域的算法" class="headerlink" title="基于邻域的算法"></a>基于邻域的算法</h5><ol>
+<li>基于用户的协同过滤算法（UserCF）：给用户推荐和他兴趣相似的其他用户喜欢的物品。</li>
+<li>基于物品的协同过滤算法（ItemCF）：给用户推荐和他之前喜欢的物品相似的物品。</li>
+</ol>
+<h5 id="隐语义模型"><a href="#隐语义模型" class="headerlink" title="隐语义模型"></a>隐语义模型</h5><p>对物品和用户兴趣进行分类。先得到用户的兴趣分类，再从分类中推荐用户可能喜欢的物品。</p>
+<h5 id="基于图的模型"><a href="#基于图的模型" class="headerlink" title="基于图的模型"></a>基于图的模型</h5><p>将用户行为用图（二分图）表示，并利用图的算法给用户进行个性化推荐。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Recommender-System/" rel="tag">#Recommender System</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/《推荐系统实践》读书笔记（1）/" rel="next" title="《推荐系统实践》读书笔记（1）">
+                <i class="fa fa-chevron-left"></i> 《推荐系统实践》读书笔记（1）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="江钰玮" />
+          <p class="site-author-name" itemprop="name">江钰玮</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为数据"><span class="nav-number">1.</span> <span class="nav-text">用户行为数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为分析"><span class="nav-number">2.</span> <span class="nav-text">用户行为分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#协同过滤算法"><span class="nav-number">2.1.</span> <span class="nav-text">协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据集"><span class="nav-number">2.1.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#离线实验设计"><span class="nav-number">2.1.2.</span> <span class="nav-text">离线实验设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#评测指标"><span class="nav-number">2.1.3.</span> <span class="nav-text">评测指标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于邻域的算法"><span class="nav-number">2.1.4.</span> <span class="nav-text">基于邻域的算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#隐语义模型"><span class="nav-number">2.1.5.</span> <span class="nav-text">隐语义模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于图的模型"><span class="nav-number">2.1.6.</span> <span class="nav-text">基于图的模型</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">江钰玮</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

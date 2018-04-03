@@ -230,6 +230,134 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/03/《推荐系统实践》读书笔记（2）/" itemprop="url">
+                  《推荐系统实践》读书笔记（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-03T22:46:58+08:00" content="2018-04-03">
+              2018-04-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="用户行为数据"><a href="#用户行为数据" class="headerlink" title="用户行为数据"></a>用户行为数据</h3><ul>
+<li>原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。</li>
+<li>用户行为一般分为两种：<ol>
+<li>显性反馈行为（explicit feedback）：主要方式为评分或喜欢/不喜欢。</li>
+<li>隐性反馈行为（implicit feedback）：最具代表性：页面浏览行为。</li>
+</ol>
+</li>
+<li><p>显隐性反馈数据比较：<br>|–|显性反馈数据|隐性反馈数据|<br>|:-|:——————|:—————–|<br>|用户兴趣|明确|不明确|<br>|数量|较少|庞大|<br>|存储|数据库|分布式文件系统|<br>|实时读取|实时|有延迟|<br>|正负反馈|都有|只有正反馈|</p>
+</li>
+<li><p>用户行为的统一表示<br>|user id|产生行为的用户唯一标识|<br>|:——–|:———————————|<br>|item id|产生行为的对象唯一标识|<br>|behavior type|行为的种类|<br>|context|产生行为的上下文，时间和地点等|<br>|behavior weight|行为的权重|<br>|behavior content|行为的内容|</p>
+</li>
+</ul>
+<h3 id="用户行为分析"><a href="#用户行为分析" class="headerlink" title="用户行为分析"></a>用户行为分析</h3><ul>
+<li>长尾分布：用户越活跃，越倾向于浏览冷门的商品。</li>
+<li>协同过滤算法：基于邻域的方法（neighborhood-based）、隐语义模型（latent factor model）、基于图的随机游走算法（random walk on graph）</li>
+</ul>
+<h4 id="协同过滤算法"><a href="#协同过滤算法" class="headerlink" title="协同过滤算法"></a>协同过滤算法</h4><h5 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h5><p>利用 MovieLens 数据集（忽略评分记录）研究隐反馈数据集 TopN 推荐问题，即预测用户会不会对某部电影评分，而非预测用户对某电影评多少分。</p>
+<h5 id="离线实验设计"><a href="#离线实验设计" class="headerlink" title="离线实验设计"></a>离线实验设计</h5><ol>
+<li>将用户行为数据集按均匀分布随机分成M份，选一份为测试集，其余为训练集。</li>
+<li>在训练集上建立用户兴趣模型，并在测试集上对用户行为进行预测，统计出相应的评价指标。</li>
+<li>为保证指标不过拟合，需进行 M 次实验，并每次选用不同测试集，将 M 次实验测出的评测指标的平均值作为最终评测指标。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#将数据集随机分成训练集和测试集</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">SplitData</span><span class="params">(data, M, k, seed)</span>:</span></div><div class="line">    test = []</div><div class="line">    train = []</div><div class="line">    random.seed(seed)</div><div class="line">    <span class="keyword">for</span> user, item <span class="keyword">in</span> data:</div><div class="line">        <span class="keyword">if</span> random.randint(<span class="number">0</span>, M) == k:</div><div class="line">            test.append([user, item])</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            train.append([user, item])</div><div class="line">    <span class="keyword">return</span> train, test</div></pre></td></tr></table></figure>
+<h5 id="评测指标"><a href="#评测指标" class="headerlink" title="评测指标"></a>评测指标</h5><ol>
+<li>召回率：描述有多少比例的用户-物品评分记录包含在最终的推荐列表中。</li>
+<li>准确率：描述最终的推荐列表中有多少比例是发生在用户-物品评分记录。</li>
+<li>覆盖率：反映推荐算法发掘长为的能力，覆盖率越高，越能将长尾中的物品推荐给用户。</li>
+<li>新颖度：对每个物品的流行度取对数，计算平均流行度。（因物品流行度分布满足长尾分布，取对数使得流行度平均值更稳定。）</li>
+</ol>
+<h5 id="基于邻域的算法"><a href="#基于邻域的算法" class="headerlink" title="基于邻域的算法"></a>基于邻域的算法</h5><ol>
+<li>基于用户的协同过滤算法（UserCF）：给用户推荐和他兴趣相似的其他用户喜欢的物品。</li>
+<li>基于物品的协同过滤算法（ItemCF）：给用户推荐和他之前喜欢的物品相似的物品。</li>
+</ol>
+<h5 id="隐语义模型"><a href="#隐语义模型" class="headerlink" title="隐语义模型"></a>隐语义模型</h5><p>对物品和用户兴趣进行分类。先得到用户的兴趣分类，再从分类中推荐用户可能喜欢的物品。</p>
+<h5 id="基于图的模型"><a href="#基于图的模型" class="headerlink" title="基于图的模型"></a>基于图的模型</h5><p>将用户行为用图（二分图）表示，并利用图的算法给用户进行个性化推荐。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/02/《推荐系统实践》读书笔记（1）/" itemprop="url">
                   《推荐系统实践》读书笔记（1）
                 </a>
@@ -1205,122 +1333,6 @@ AB -&gt; 28
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/05/LeetCode-Easy-492-Construct-the-Rectangle/" itemprop="url">
-                  [LeetCode Easy] 492. Construct the Rectangle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-05T22:38:05+08:00" content="2017-05-05">
-              2017-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>For a web developer, it is very important to know how to design a web page’s size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:</p>
-<ol>
-<li><p>The area of the rectangular web page you designed must equal to the given target area.</p>
-</li>
-<li><p>The width W should not be larger than the length L, which means L &gt;= W.</p>
-</li>
-<li><p>The difference between length L and width W should be as small as possible.<br>You need to output the length L and the width W of the web page you designed in sequence.</p>
-</li>
-</ol>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input: 4<br>Output: [2, 2]<br>Explanation: The target area is 4, and all the possible ways to construct it are [1,4], [2,2], [4,1].<br>But according to requirement 2, [1,4] is illegal; according to requirement 3,  [4,1] is not optimal compared to [2,2]. So the length L is 2, and the width W is 2.</p>
-<p>Note:</p>
-<ol>
-<li><p>The given area won’t exceed 10,000,000 and is a positive integer</p>
-</li>
-<li><p>The web page’s width and length you designed must be positive integers.</p>
-</li>
-</ol>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从面积的平方根开始向下枚举宽，如果存在面积可整除宽则输出答案。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] constructRectangle(<span class="keyword">int</span> area) &#123;</div><div class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">        ans[<span class="number">1</span>] = (<span class="keyword">int</span>)Math.sqrt(area);</div><div class="line">        <span class="keyword">while</span> (area % ans[<span class="number">1</span>] != <span class="number">0</span>) &#123;</div><div class="line">            ans[<span class="number">1</span>] --;</div><div class="line">        &#125;</div><div class="line">        ans[<span class="number">0</span>] = area / ans[<span class="number">1</span>];</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 5 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>可枚举长度 L，但由于 L 范围 [sqrt(area), area] 大于宽 W 范围 [0, sqrt(area)]，所以耗时更久(109ms)。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1366,7 +1378,7 @@ AB -&gt; 28
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
