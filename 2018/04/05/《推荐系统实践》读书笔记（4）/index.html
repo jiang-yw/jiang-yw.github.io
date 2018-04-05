@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,19 +84,51 @@
 
 
 
-<meta name="description" content="题目Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same">
+<meta name="description" content="推荐系统联系用户和物品的途径
+
+特征表现形式
+物品的属性集合：例如图书的属性集合包括作者、出版社、主题和关键词等
+隐语义模型
+标签：描述物品的语义
+
+标签分类
+作者或专家给用户打标签
+用户给物品打标签，即 UGC（User Generated Content，用户生成的内容） 用户对一个物品打上一个标签，这个标签既描述了用户的兴趣，又表示了物品的语义，从而将用户和物品联系起来。
+
+标签系统中的推">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 1. Two Sum">
-<meta property="og:url" content="http://yoursite.com/2017/05/01/LeetCode-Easy-1-Two-Sum/index.html">
+<meta property="og:title" content="《推荐系统实践》读书笔记（4）">
+<meta property="og:url" content="http://yoursite.com/2018/04/05/《推荐系统实践》读书笔记（4）/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same">
-<meta property="og:updated_time" content="2017-05-01T13:38:24.704Z">
+<meta property="og:description" content="推荐系统联系用户和物品的途径
+
+特征表现形式
+物品的属性集合：例如图书的属性集合包括作者、出版社、主题和关键词等
+隐语义模型
+标签：描述物品的语义
+
+标签分类
+作者或专家给用户打标签
+用户给物品打标签，即 UGC（User Generated Content，用户生成的内容） 用户对一个物品打上一个标签，这个标签既描述了用户的兴趣，又表示了物品的语义，从而将用户和物品联系起来。
+
+标签系统中的推">
+<meta property="og:image" content="http://yoursite.com/2018/04/05/《推荐系统实践》读书笔记（4）/xxxx/推荐系统联系用户和物品的几种途径.jpg">
+<meta property="og:updated_time" content="2018-04-05T12:59:08.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 1. Two Sum">
-<meta name="twitter:description" content="题目Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same">
+<meta name="twitter:title" content="《推荐系统实践》读书笔记（4）">
+<meta name="twitter:description" content="推荐系统联系用户和物品的途径
+
+特征表现形式
+物品的属性集合：例如图书的属性集合包括作者、出版社、主题和关键词等
+隐语义模型
+标签：描述物品的语义
+
+标签分类
+作者或专家给用户打标签
+用户给物品打标签，即 UGC（User Generated Content，用户生成的内容） 用户对一个物品打上一个标签，这个标签既描述了用户的兴趣，又表示了物品的语义，从而将用户和物品联系起来。
+
+标签系统中的推">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/05/《推荐系统实践》读书笔记（4）/xxxx/推荐系统联系用户和物品的几种途径.jpg">
 
 
 
@@ -114,7 +146,7 @@ You may assume that each input would have exactly one solution, and you may not 
   };
 </script>
 
-  <title> [LeetCode Easy] 1. Two Sum | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 《推荐系统实践》读书笔记（4） | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +266,7 @@ You may assume that each input would have exactly one solution, and you may not 
             
             
               
-                [LeetCode Easy] 1. Two Sum
+                《推荐系统实践》读书笔记（4）
               
             
           </h1>
@@ -246,8 +278,8 @@ You may assume that each input would have exactly one solution, and you may not 
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-01T21:37:53+08:00" content="2017-05-01">
-              2017-05-01
+            <time itemprop="dateCreated" datetime="2018-04-05T20:54:22+08:00" content="2018-04-05">
+              2018-04-05
             </time>
           </span>
 
@@ -274,17 +306,31 @@ You may assume that each input would have exactly one solution, and you may not 
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>暴力， 时间复杂度 O(n^2)，待优化。 </p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (nums[i] + nums[j] == target) &#123;</div><div class="line">                    ans[<span class="number">0</span>] = i;</div><div class="line">                    ans[<span class="number">1</span>] = j;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 61 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>Hash Table。</li>
-<li>可用 hashmap记录数组数值和出现位置，与 target - nums[i] 匹配。</li>
+        <ul>
+<li>推荐系统联系用户和物品的途径<br><img src="/2018/04/05/《推荐系统实践》读书笔记（4）/xxxx/推荐系统联系用户和物品的几种途径.jpg" alt="推荐系统联系用户和物品的几种途径"></li>
 </ul>
+<h3 id="特征表现形式"><a href="#特征表现形式" class="headerlink" title="特征表现形式"></a>特征表现形式</h3><ol>
+<li>物品的属性集合：例如图书的属性集合包括作者、出版社、主题和关键词等</li>
+<li>隐语义模型</li>
+<li>标签：描述物品的语义</li>
+</ol>
+<h5 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h5><ol>
+<li>作者或专家给用户打标签</li>
+<li>用户给物品打标签，即 UGC（User Generated Content，用户生成的内容）<br> 用户对一个物品打上一个标签，这个标签既描述了用户的兴趣，又表示了物品的语义，从而将用户和物品联系起来。</li>
+</ol>
+<h3 id="标签系统中的推荐问题"><a href="#标签系统中的推荐问题" class="headerlink" title="标签系统中的推荐问题"></a>标签系统中的推荐问题</h3><ol>
+<li>如何利用用户打标签的行为为其推荐物品（基于标签的推荐）？</li>
+<li>如何在用户给物品打标签时为其推荐适合该物品的标签（标签推荐）？</li>
+</ol>
+<h3 id="基于标签的推荐系统"><a href="#基于标签的推荐系统" class="headerlink" title="基于标签的推荐系统"></a>基于标签的推荐系统</h3><h5 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h5><ol>
+<li>标签扩展<br>对每个标签找到和它相似的标签，计算标签之间的相似度。</li>
+<li>标签清理<ol>
+<li>去除词频很高的停止词（或表示情绪的词）</li>
+<li>去除因词根不同造成的同义词</li>
+<li>去除因分隔符造成的同义词</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -304,28 +350,18 @@ You may assume that each input would have exactly one solution, and you may not 
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/LeetCode-Easy-292-Nim-Game/" rel="next" title="[LeetCode Easy] 292. Nim Game">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 292. Nim Game
+              <a href="/2018/04/04/《推荐系统实践》读书笔记（3）/" rel="next" title="《推荐系统实践》读书笔记（3）">
+                <i class="fa fa-chevron-left"></i> 《推荐系统实践》读书笔记（3）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/02/LeetCode-Easy-485-Max-Consecutive-Ones/" rel="prev" title="[LeetCode Easy] 485. Max Consecutive Ones">
-                [LeetCode Easy] 485. Max Consecutive Ones <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -432,7 +468,7 @@ You may assume that each input would have exactly one solution, and you may not 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">5.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征表现形式"><span class="nav-number">1.</span> <span class="nav-text">特征表现形式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标签分类"><span class="nav-number">1.0.1.</span> <span class="nav-text">标签分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签系统中的推荐问题"><span class="nav-number">2.</span> <span class="nav-text">标签系统中的推荐问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于标签的推荐系统"><span class="nav-number">3.</span> <span class="nav-text">基于标签的推荐系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法优化"><span class="nav-number">3.0.1.</span> <span class="nav-text">算法优化</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

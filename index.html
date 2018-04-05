@@ -230,6 +230,124 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/05/《推荐系统实践》读书笔记（4）/" itemprop="url">
+                  《推荐系统实践》读书笔记（4）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-05T20:54:22+08:00" content="2018-04-05">
+              2018-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>推荐系统联系用户和物品的途径<br><img src="/2018/04/05/《推荐系统实践》读书笔记（4）/xxxx/推荐系统联系用户和物品的几种途径.jpg" alt="推荐系统联系用户和物品的几种途径"></li>
+</ul>
+<h3 id="特征表现形式"><a href="#特征表现形式" class="headerlink" title="特征表现形式"></a>特征表现形式</h3><ol>
+<li>物品的属性集合：例如图书的属性集合包括作者、出版社、主题和关键词等</li>
+<li>隐语义模型</li>
+<li>标签：描述物品的语义</li>
+</ol>
+<h5 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h5><ol>
+<li>作者或专家给用户打标签</li>
+<li>用户给物品打标签，即 UGC（User Generated Content，用户生成的内容）<br> 用户对一个物品打上一个标签，这个标签既描述了用户的兴趣，又表示了物品的语义，从而将用户和物品联系起来。</li>
+</ol>
+<h3 id="标签系统中的推荐问题"><a href="#标签系统中的推荐问题" class="headerlink" title="标签系统中的推荐问题"></a>标签系统中的推荐问题</h3><ol>
+<li>如何利用用户打标签的行为为其推荐物品（基于标签的推荐）？</li>
+<li>如何在用户给物品打标签时为其推荐适合该物品的标签（标签推荐）？</li>
+</ol>
+<h3 id="基于标签的推荐系统"><a href="#基于标签的推荐系统" class="headerlink" title="基于标签的推荐系统"></a>基于标签的推荐系统</h3><h5 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h5><ol>
+<li>标签扩展<br>对每个标签找到和它相似的标签，计算标签之间的相似度。</li>
+<li>标签清理<ol>
+<li>去除词频很高的停止词（或表示情绪的词）</li>
+<li>去除因词根不同造成的同义词</li>
+<li>去除因分隔符造成的同义词</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/04/《推荐系统实践》读书笔记（3）/" itemprop="url">
                   《推荐系统实践》读书笔记（3）
                 </a>
@@ -1296,111 +1414,6 @@ AB -&gt; 28
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/06/LeetCode-Easy-453-Minimum-Moves-to-Equal-Array-Elements/" itemprop="url">
-                  [LeetCode Easy] 453. Minimum Moves to Equal Array Elements
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-06T22:34:22+08:00" content="2017-05-06">
-              2017-05-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input:<br>[1,2,3]</p>
-<p>Output:<br>3</p>
-<p>Explanation:<br>Only three moves are needed (remember each move increments two elements):</p>
-<p>[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>题意为每次将数组中的 n - 1 个元素加 1，使得数组中每个元素值相等，求最少次数。可逆向思维，每次将数组中最大元素减至与最小值相等。</p>
-<p>即可推出答案即为 $ \sum_{i=0}^{n-1}num[i]-minnum*nums.length $</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minMoves</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> minn = nums[<span class="number">0</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</div><div class="line">            minn = minn &gt; i ? i : minn;</div><div class="line">            ans += i;</div><div class="line">        &#125;</div><div class="line">        ans -= minn * nums.length;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 13 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>数学题。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1446,7 +1459,7 @@ AB -&gt; 28
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1578,24 +1591,7 @@ AB -&gt; 28
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
