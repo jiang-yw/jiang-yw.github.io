@@ -230,6 +230,131 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/07/《推荐系统实践》读书笔记（6）/" itemprop="url">
+                  《推荐系统实践》读书笔记（6）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-07T11:45:48+08:00" content="2018-04-07">
+              2018-04-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="社交网络数据"><a href="#社交网络数据" class="headerlink" title="社交网络数据"></a>社交网络数据</h3><ol>
+<li>双向确认的社交网络数据：无向图表示</li>
+<li>单向关注的社交网络数据：有向图表示</li>
+<li>基于社区的社交网络数据：无明确关系，但包含用户所属不同社区的数据</li>
+</ol>
+<h3 id="基于社交网络的推荐"><a href="#基于社交网络的推荐" class="headerlink" title="基于社交网络的推荐"></a>基于社交网络的推荐</h3><ol>
+<li>好友推荐可以增加推荐的信任度</li>
+<li>社交网络可以解决冷启动问题</li>
+</ol>
+<h4 id="基于邻域的社会化推荐算法"><a href="#基于邻域的社会化推荐算法" class="headerlink" title="基于邻域的社会化推荐算法"></a>基于邻域的社会化推荐算法</h4><p>给用户推荐好友喜欢的物品集合，算法中考虑好友和用户的熟悉程度及兴趣相似度。</p>
+<h4 id="基于图的社会化推荐算法"><a href="#基于图的社会化推荐算法" class="headerlink" title="基于图的社会化推荐算法"></a>基于图的社会化推荐算法</h4><p>社交网站中存在两种关系，一种是用户对物品的兴趣关系，一种是用户之间的社交网络关系。建立这两种关系到图模型中，从而实现对用户的个性化推荐。</p>
+<h4 id="实际系统中的社会化推荐算法"><a href="#实际系统中的社会化推荐算法" class="headerlink" title="实际系统中的社会化推荐算法"></a>实际系统中的社会化推荐算法</h4><ol>
+<li>在拿用户好友集合时只拿出和用户相似度最高的 N 个好友 。</li>
+<li>为每个用户维护一个消息队列（message queue）。</li>
+</ol>
+<h4 id="社会化推荐系统和协同过滤系统系统"><a href="#社会化推荐系统和协同过滤系统系统" class="headerlink" title="社会化推荐系统和协同过滤系统系统"></a>社会化推荐系统和协同过滤系统系统</h4><blockquote>
+<p>社会化系统的离线评测：“Recommendations in Taste Related Domains: Collaborative Filtering vs. Social Filtering”</p>
+</blockquote>
+<h4 id="信息流推荐"><a href="#信息流推荐" class="headerlink" title="信息流推荐"></a>信息流推荐</h4><p>Facebook 的 EdgeRank</p>
+<h3 id="给用户推荐好友"><a href="#给用户推荐好友" class="headerlink" title="给用户推荐好友"></a>给用户推荐好友</h3><ol>
+<li>基于内容的匹配</li>
+<li>基于共同兴趣的好友推荐</li>
+<li>基于社交网络图的好友推荐</li>
+<li>基于用户调查的好友推荐对比</li>
+</ol>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ol>
+<li>常用数据集：基于 Epinion 的用户信任网络</li>
+<li>基于矩阵分解的社会化推荐算法 解决评分预测问题<blockquote>
+<p>“SoRec:Social Recommendation Using Probabilistic Matrix Factorization”</p>
+</blockquote>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/06/《推荐系统实践》读书笔记（5）/" itemprop="url">
                   《推荐系统实践》读书笔记（5）
                 </a>
@@ -1311,117 +1436,11 @@ AB -&gt; 28
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/07/LeetCode-Easy-349-Intersection-of-Two-Arrays/" itemprop="url">
-                  [LeetCode Easy] 349. Intersection of Two Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-07T22:41:34+08:00" content="2017-05-07">
-              2017-05-07
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given two arrays, write a function to compute their intersection.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].</p>
-<p>Note:</p>
-<ol>
-<li>Each element in the result must be unique.</li>
-<li>The result can be in any order.</li>
-</ol>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>求两个数组的并集，并去重。用 set 做，待优化。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</div><div class="line">        Set s1 = <span class="keyword">new</span> HashSet();</div><div class="line">        Set s2 = <span class="keyword">new</span> TreeSet();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums1) &#123;</div><div class="line">            s1.add(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums2) &#123;</div><div class="line">        	<span class="keyword">for</span> (Iterator&lt;Integer&gt; iterator = s1.iterator(); iterator.hasNext();) &#123;  </div><div class="line">                <span class="keyword">if</span> (i == iterator.next()) &#123;</div><div class="line">                	s2.add(i);</div><div class="line">                	<span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;  </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[s2.size()];</div><div class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Integer&gt; iterator = s2.iterator(); iterator.hasNext();) &#123;</div><div class="line">        	ans[k++] = iterator.next();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 57 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>应用set。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1462,7 +1481,7 @@ AB -&gt; 28
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

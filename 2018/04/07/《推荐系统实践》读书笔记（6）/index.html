@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode," />
+  <meta name="keywords" content="Recommender System," />
 
 
 
@@ -84,22 +84,46 @@
 
 
 
-<meta name="description" content="题目Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
-样例Input: “Let’s take LeetCode contest”
-Output: “s">
+<meta name="description" content="社交网络数据
+双向确认的社交网络数据：无向图表示
+单向关注的社交网络数据：有向图表示
+基于社区的社交网络数据：无明确关系，但包含用户所属不同社区的数据
+
+基于社交网络的推荐
+好友推荐可以增加推荐的信任度
+社交网络可以解决冷启动问题
+
+基于邻域的社会化推荐算法给用户推荐好友喜欢的物品集合，算法中考虑好友和用户的熟悉程度及兴趣相似度。
+基于图的社会化推荐算法社交网站中存在两种关系，一种是用户对物品的兴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode Easy] 557. Reverse Words in a String III">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/LeetCode-Easy-557-Reverse-Words-in-a-String-III/index.html">
+<meta property="og:title" content="《推荐系统实践》读书笔记（6）">
+<meta property="og:url" content="http://yoursite.com/2018/04/07/《推荐系统实践》读书笔记（6）/index.html">
 <meta property="og:site_name" content="琢玉札记">
-<meta property="og:description" content="题目Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
-样例Input: “Let’s take LeetCode contest”
-Output: “s">
-<meta property="og:updated_time" content="2017-04-25T04:11:58.148Z">
+<meta property="og:description" content="社交网络数据
+双向确认的社交网络数据：无向图表示
+单向关注的社交网络数据：有向图表示
+基于社区的社交网络数据：无明确关系，但包含用户所属不同社区的数据
+
+基于社交网络的推荐
+好友推荐可以增加推荐的信任度
+社交网络可以解决冷启动问题
+
+基于邻域的社会化推荐算法给用户推荐好友喜欢的物品集合，算法中考虑好友和用户的熟悉程度及兴趣相似度。
+基于图的社会化推荐算法社交网站中存在两种关系，一种是用户对物品的兴">
+<meta property="og:updated_time" content="2018-04-07T03:46:48.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode Easy] 557. Reverse Words in a String III">
-<meta name="twitter:description" content="题目Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
-样例Input: “Let’s take LeetCode contest”
-Output: “s">
+<meta name="twitter:title" content="《推荐系统实践》读书笔记（6）">
+<meta name="twitter:description" content="社交网络数据
+双向确认的社交网络数据：无向图表示
+单向关注的社交网络数据：有向图表示
+基于社区的社交网络数据：无明确关系，但包含用户所属不同社区的数据
+
+基于社交网络的推荐
+好友推荐可以增加推荐的信任度
+社交网络可以解决冷启动问题
+
+基于邻域的社会化推荐算法给用户推荐好友喜欢的物品集合，算法中考虑好友和用户的熟悉程度及兴趣相似度。
+基于图的社会化推荐算法社交网站中存在两种关系，一种是用户对物品的兴">
 
 
 
@@ -117,7 +141,7 @@ Output: “s">
   };
 </script>
 
-  <title> [LeetCode Easy] 557. Reverse Words in a String III | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 《推荐系统实践》读书笔记（6） | 琢玉札记 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +261,7 @@ Output: “s">
             
             
               
-                [LeetCode Easy] 557. Reverse Words in a String III
+                《推荐系统实践》读书笔记（6）
               
             
           </h1>
@@ -249,8 +273,8 @@ Output: “s">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-25T12:11:24+08:00" content="2017-04-25">
-              2017-04-25
+            <time itemprop="dateCreated" datetime="2018-04-07T11:45:48+08:00" content="2018-04-07">
+              2018-04-07
             </time>
           </span>
 
@@ -277,18 +301,38 @@ Output: “s">
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</p>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>Input: “Let’s take LeetCode contest”</p>
-<p>Output: “s’teL ekat edoCteeL tsetnoc”</p>
-<p>Note: In the string, each word is separated by single space and there will not be any extra space in the string.</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>求给出字符串不改变原顺序的每个单词反转。按空格分割字符串，由 tmp 记录每个每个反转的单词，再添加到 ans 中， 需注意空格的位置。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        String[] sa = s.split(<span class="string">" "</span>);</div><div class="line">        String ans = <span class="string">""</span>;</div><div class="line">        String tmp = <span class="string">""</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sa.length; i++) &#123;       </div><div class="line">            tmp = <span class="string">""</span>;</div><div class="line">            <span class="keyword">int</span> len = sa[i].length();</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</div><div class="line">                tmp = sa[i].charAt(j) + tmp;</div><div class="line">            &#125;</div><div class="line">            ans = i == <span class="number">0</span> ? tmp : ans + <span class="string">" "</span> + tmp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 168 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>字符串反转。</li>
-<li>Java 中 String.split(String regex) 方法， 可将字符串分割成数组，regex为分割的正则表达式。</li>
-<li>可先反转后再进行分割，翻转操作为 String rev_s = new StringBuffer(s).reverse().toString();  </li>
-</ul>
+        <h3 id="社交网络数据"><a href="#社交网络数据" class="headerlink" title="社交网络数据"></a>社交网络数据</h3><ol>
+<li>双向确认的社交网络数据：无向图表示</li>
+<li>单向关注的社交网络数据：有向图表示</li>
+<li>基于社区的社交网络数据：无明确关系，但包含用户所属不同社区的数据</li>
+</ol>
+<h3 id="基于社交网络的推荐"><a href="#基于社交网络的推荐" class="headerlink" title="基于社交网络的推荐"></a>基于社交网络的推荐</h3><ol>
+<li>好友推荐可以增加推荐的信任度</li>
+<li>社交网络可以解决冷启动问题</li>
+</ol>
+<h4 id="基于邻域的社会化推荐算法"><a href="#基于邻域的社会化推荐算法" class="headerlink" title="基于邻域的社会化推荐算法"></a>基于邻域的社会化推荐算法</h4><p>给用户推荐好友喜欢的物品集合，算法中考虑好友和用户的熟悉程度及兴趣相似度。</p>
+<h4 id="基于图的社会化推荐算法"><a href="#基于图的社会化推荐算法" class="headerlink" title="基于图的社会化推荐算法"></a>基于图的社会化推荐算法</h4><p>社交网站中存在两种关系，一种是用户对物品的兴趣关系，一种是用户之间的社交网络关系。建立这两种关系到图模型中，从而实现对用户的个性化推荐。</p>
+<h4 id="实际系统中的社会化推荐算法"><a href="#实际系统中的社会化推荐算法" class="headerlink" title="实际系统中的社会化推荐算法"></a>实际系统中的社会化推荐算法</h4><ol>
+<li>在拿用户好友集合时只拿出和用户相似度最高的 N 个好友 。</li>
+<li>为每个用户维护一个消息队列（message queue）。</li>
+</ol>
+<h4 id="社会化推荐系统和协同过滤系统系统"><a href="#社会化推荐系统和协同过滤系统系统" class="headerlink" title="社会化推荐系统和协同过滤系统系统"></a>社会化推荐系统和协同过滤系统系统</h4><blockquote>
+<p>社会化系统的离线评测：“Recommendations in Taste Related Domains: Collaborative Filtering vs. Social Filtering”</p>
+</blockquote>
+<h4 id="信息流推荐"><a href="#信息流推荐" class="headerlink" title="信息流推荐"></a>信息流推荐</h4><p>Facebook 的 EdgeRank</p>
+<h3 id="给用户推荐好友"><a href="#给用户推荐好友" class="headerlink" title="给用户推荐好友"></a>给用户推荐好友</h3><ol>
+<li>基于内容的匹配</li>
+<li>基于共同兴趣的好友推荐</li>
+<li>基于社交网络图的好友推荐</li>
+<li>基于用户调查的好友推荐对比</li>
+</ol>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ol>
+<li>常用数据集：基于 Epinion 的用户信任网络</li>
+<li>基于矩阵分解的社会化推荐算法 解决评分预测问题<blockquote>
+<p>“SoRec:Social Recommendation Using Probabilistic Matrix Factorization”</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -310,7 +354,7 @@ Output: “s">
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+            <a href="/tags/Recommender-System/" rel="tag">#Recommender System</a>
           
         </div>
       
@@ -319,17 +363,13 @@ Output: “s">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/LeetCode-Easy-461-Hamming-Distance/" rel="next" title="[LeetCode Easy] 461. Hamming Distance">
-                <i class="fa fa-chevron-left"></i> [LeetCode Easy] 461. Hamming Distance
+              <a href="/2018/04/06/《推荐系统实践》读书笔记（5）/" rel="next" title="《推荐系统实践》读书笔记（5）">
+                <i class="fa fa-chevron-left"></i> 《推荐系统实践》读书笔记（5）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/25/LeetCode-Easy-476-Number-Complement/" rel="prev" title="[LeetCode Easy] 476. Number Complement">
-                [LeetCode Easy] 476. Number Complement <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,7 +476,7 @@ Output: “s">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态"><span class="nav-number">5.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#社交网络数据"><span class="nav-number">1.</span> <span class="nav-text">社交网络数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于社交网络的推荐"><span class="nav-number">2.</span> <span class="nav-text">基于社交网络的推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于邻域的社会化推荐算法"><span class="nav-number">2.1.</span> <span class="nav-text">基于邻域的社会化推荐算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于图的社会化推荐算法"><span class="nav-number">2.2.</span> <span class="nav-text">基于图的社会化推荐算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实际系统中的社会化推荐算法"><span class="nav-number">2.3.</span> <span class="nav-text">实际系统中的社会化推荐算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#社会化推荐系统和协同过滤系统系统"><span class="nav-number">2.4.</span> <span class="nav-text">社会化推荐系统和协同过滤系统系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息流推荐"><span class="nav-number">2.5.</span> <span class="nav-text">信息流推荐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给用户推荐好友"><span class="nav-number">3.</span> <span class="nav-text">给用户推荐好友</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展"><span class="nav-number">4.</span> <span class="nav-text">扩展</span></a></li></ol></div>
             
           </div>
         </section>
