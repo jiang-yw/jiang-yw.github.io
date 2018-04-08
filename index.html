@@ -230,6 +230,117 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/08/《推荐系统实践》读书笔记（7）/" itemprop="url">
+                  《推荐系统实践》读书笔记（7）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-08T18:10:33+08:00" content="2018-04-08">
+              2018-04-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="推荐系统的外围架构"><a href="#推荐系统的外围架构" class="headerlink" title="推荐系统的外围架构"></a>推荐系统的外围架构</h3><p><img src="/2018/04/08/《推荐系统实践》读书笔记（7）/推荐系统的外围架构.png" alt="推荐系统的外围架构"></p>
+<h4 id="数据收集和存储"><a href="#数据收集和存储" class="headerlink" title="数据收集和存储"></a>数据收集和存储</h4><p>按照数据的规模和是否需要实时存取，不同的行为数据存储在不同的媒介中。</p>
+<ol>
+<li>需要实时存取的数据存储在数据库和缓存中</li>
+<li>大规模的非实时存取数据存储在分布式文件系统（如 HDFS）中</li>
+</ol>
+<h3 id="推荐系统的架构"><a href="#推荐系统的架构" class="headerlink" title="推荐系统的架构"></a>推荐系统的架构</h3><h4 id="基于特征"><a href="#基于特征" class="headerlink" title="基于特征"></a>基于特征</h4><ul>
+<li><p>任务</p>
+<ol>
+<li>为给定用户生成特征</li>
+<li>根据特征找到物品</li>
+</ol>
+</li>
+<li><p>推荐引擎</p>
+</li>
+</ul>
+<p>推荐系统由多个推荐引擎组合，每个引擎负责一类特征（即代表了一种推荐策略），将结果按照一定权重或者优先级合并、排序后返回。</p>
+<h3 id="推荐引擎的架构"><a href="#推荐引擎的架构" class="headerlink" title="推荐引擎的架构"></a>推荐引擎的架构</h3><p><img src="/2018/04/08/《推荐系统实践》读书笔记（7）/推荐引擎架构图.png" alt="推荐引擎架构图"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/07/《推荐系统实践》读书笔记（6）/" itemprop="url">
                   《推荐系统实践》读书笔记（6）
                 </a>
@@ -1334,108 +1445,6 @@ AB -&gt; 28
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/08/LeetCode-Easy-122-Best-Time-to-Buy-and-Sell-Stock-II/" itemprop="url">
-                  [LeetCode Easy] 122. Best Time to Buy and Sell Stock II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-08T22:18:19+08:00" content="2017-05-08">
-              2017-05-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>假设有一个数组，它的第i个元素是一个给定的股票在第i天的价格。设计一个算法来找到最大的利润。你可以完成尽可能多的交易(多次买卖股票)。然而,你不能同时参与多个交易(你必须在再次购买前出售股票)。 </p>
-<p>遍历数组，累加每次当前位大于前一位数值的差值即为最大利润。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; prices.length; i++) &#123;</div><div class="line">            ans += prices[i] &gt; prices[i - <span class="number">1</span>] ? prices[i] - prices[i - <span class="number">1</span>] : <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 1 ms</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>贪心。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1481,7 +1490,7 @@ AB -&gt; 28
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
