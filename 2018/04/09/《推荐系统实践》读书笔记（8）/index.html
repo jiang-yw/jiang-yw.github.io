@@ -112,7 +112,7 @@
 评分预测算法平均值最简单的评分预测算法是利用平均值预测用户对物品的评分的。
 基于邻域的算法
 基于用户：预">
-<meta property="og:updated_time" content="2018-04-09T12:33:15.146Z">
+<meta property="og:updated_time" content="2018-04-09T12:39:33.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《推荐系统实践》读书笔记（8）">
 <meta name="twitter:description" content="TopN 推荐给定了一个用户，如何生成一个长度为 N 的推荐列表，使该推荐列表能够尽量满足用户的兴趣和需求。
@@ -346,8 +346,7 @@
 <li><strong>Funk-SVD（Latent Factor Model，LFM）</strong></li>
 </ul>
 <p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：</p>
-<pre><code>$$\hat R = P^TQ$$
-</code></pre><p>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
+<script type="math/tex; mode=display">\hat R = P^TQ</script><p>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
 <script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p_{uf} = P(u,f)$，$q_{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2</script><p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2 + $\lambda((\Vert p_u \Vert)^2+(\Vert q_i \Vert)^2 )</script><p>利用<strong>SGD（随机梯度下降法）</strong>，最小化损失函数，从而得到最终的$P$、$Q$矩阵。</p>
@@ -355,11 +354,7 @@
 <li><strong>加入偏置项后的 LFM （BiasSVD）</strong></li>
 </ul>
 <p>实际中，评分系统的固有属性和用户物品无关，而用户也有些属性和物品，物品也有些属性和用户无关。因此，Netflix Prize 提出了另一种 LFM，其预测公式为：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i</script><ol>
-<li>$\mu$ 表示训练集中所有记录的评分的全局平均数。</li>
-<li>$b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。</li>
-<li>$b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</li>
-</ol>
+<script type="math/tex; mode=display">\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i</script><p>$\mu$ 表示训练集中所有记录的评分的全局平均数。<br>$b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。<br>$b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</p>
 <ul>
 <li><strong>考虑邻域影响的 LFM（SVD++）</strong></li>
 </ul>
