@@ -304,9 +304,7 @@
 <ul>
 <li><strong>SVD 分解</strong></li>
 </ul>
-<p>给定 $m$ 个用户和 $n$ 个物品，和用户评分矩阵 $R[m][n]$ 。用平均值对矩阵缺失值进行简单的补全，得到补全后的矩阵 $R’$。可以用 SVD 将 $R’$分解为：</p>
-<script type="math/tex; mode=display">R' =  U^TSV</script><p>其中 $U\in\mathbb{R}^{k \times n}$ ，$V\in\mathbb{R}^{k \times n}$ 是两个正交矩阵，$S\in\mathbb{R}^{k \times k}$ 是对角阵，对角线上的每一个元素都是矩阵的奇异值。为了对 $R’$ 进行降维，可以取最大的 $f$ 个奇异值组成腿脚矩阵 $S_f$，并找到这 $f$ 个奇异值中每个值在 $U$、$V$ 矩阵中对应的行和列，得到 $U_f$、$V_f$，从而得到一个降维后的评分矩阵：</p>
-<script type="math/tex; mode=display">R^{'}_f = U^T_fS_fV_f</script><p>其中，$R^{‘}_f(u, i)$ 就是用户 $u$ 对物品 $i$ 评分的预测值。</p>
+<p>给定 $m$ 个用户和 $n$ 个物品，和用户评分矩阵 $R[m][n]$ 。用平均值对矩阵缺失值进行简单的补全，得到补全后的矩阵 $R’$。可以用 SVD 将 $R’$分解为：<br>$$R’ =  U^TSV$$<br>其中 $U\in\mathbb{R}^{k \times n}$ ，$V\in\mathbb{R}^{k \times n}$ 是两个正交矩阵，$S\in\mathbb{R}^{k \times k}$ 是对角阵，对角线上的每一个元素都是矩阵的奇异值。为了对 $R’$ 进行降维，可以取最大的 $f$ 个奇异值组成腿脚矩阵 $S_f$，并找到这 $f$ 个奇异值中每个值在 $U$、$V$ 矩阵中对应的行和列，得到 $U_f$、$V_f$，从而得到一个降维后的评分矩阵：<br>$$R^{‘}_f = U^T_fS_fV_f$$<br>其中，$R^{‘}_f(u, i)$ 就是用户 $u$ 对物品 $i$ 评分的预测值。</p>
 <p>SVD 分解的缺点：</p>
 <ol>
 <li>需要先补全稀疏评分矩阵，成为稠密矩阵，此时需要很大空间存储。</li>
@@ -315,22 +313,21 @@
 <ul>
 <li><strong>Funk-SVD（Latent Factor Model，LFM）</strong></li>
 </ul>
-<p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：</p>
-<script type="math/tex; mode=display">\hat R = P^TQ</script><p>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p<em>{uf} = P(u,f)$，$q</em>{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
-<script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2</script><p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：</p>
-<script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2 + $\lambda((\Vert p_u \Vert)^2+(\Vert q_i \Vert)^2 )</script><p>利用<strong>SGD（随机梯度下降法）</strong>，最小化损失函数，从而得到最终的$P$、$Q$矩阵。</p>
+<p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：<br>$$\hat R = P^TQ$$<br>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
+<p>$$\hat r_{ui} = \sum_fp_{uf}q_{uf}$$</p>
+<p>其中 $p_{uf} = P(u,f)$，$q_{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
+<p>$$C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2$$</p>
+<p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：<br>$$C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2 + $\lambda((\Vert p_u \Vert)^2+(\Vert q_i \Vert)^2 )$$<br>利用<strong>SGD（随机梯度下降法）</strong>，最小化损失函数，从而得到最终的$P$、$Q$矩阵。</p>
 <ul>
 <li><strong>加入偏置项后的 LFM （BiasSVD）</strong></li>
 </ul>
-<p>实际中，评分系统的固有属性和用户物品无关，而用户也有些属性和物品，物品也有些属性和用户无关。因此，Netflix Prize 提出了另一种 LFM，其预测公式为：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i</script><p>$\mu$ 表示训练集中所有记录的评分的全局平均数。<br>$b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。<br>$b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</p>
+<p>实际中，评分系统的固有属性和用户物品无关，而用户也有些属性和物品，物品也有些属性和用户无关。因此，Netflix Prize 提出了另一种 LFM，其预测公式为：<br>$$\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i$$</p>
+<p>$\mu$ 表示训练集中所有记录的评分的全局平均数。<br>$b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。<br>$b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</p>
 <ul>
 <li><strong>考虑邻域影响的 LFM（SVD++）</strong></li>
 </ul>
-<p>将用户评分的物品加入到 LFM 模型中。</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \frac{1}{\sqrt {\vert N(u) \vert}} \sum_{j \in N(u)} x^T_i y_j = \frac{1}{\sqrt {\vert N(u) \vert}} x^T_i \sum_{j \in N(u)} y_j</script><p>将 LFM 与上面模型相加，并为不增加太多参数造成过拟合，令 $x = q$ 有：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \mu + b_u + b_i + q^T_i \cdot （p_u + \frac{1}{\sqrt {\vert N(u) \vert}} x^T_i \sum_{j \in N(u)} y_j）</script><h4 id="加入时间信息"><a href="#加入时间信息" class="headerlink" title="加入时间信息"></a>加入时间信息</h4><ol>
+<p>将用户评分的物品加入到 LFM 模型中。<br>$$\hat r_{ui} = \frac{1}{\sqrt {\vert N(u) \vert}} \sum_{j \in N(u)} x^T_i y_j = \frac{1}{\sqrt {\vert N(u) \vert}} x^T_i \sum_{j \in N(u)} y_j$$<br>将 LFM 与上面模型相加，并为不增加太多参数造成过拟合，令 $x = q$ 有：<br>$$\hat r_{ui} = \mu + b_u + b_i + q^T_i \cdot （p_u + \frac{1}{\sqrt {\vert N(u) \vert}} x^T_i \sum_{j \in N(u)} y_j）$$</p>
+<h4 id="加入时间信息"><a href="#加入时间信息" class="headerlink" title="加入时间信息"></a>加入时间信息</h4><ol>
 <li>基于邻域的模型融合时间信息</li>
 <li>基于矩阵分解的模型融合时间信息</li>
 </ol>
@@ -1010,11 +1007,10 @@
 </li>
 <li>显隐性反馈数据比较：</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">—</th>
+<th style="text-align:left">–</th>
 <th style="text-align:left">显性反馈数据</th>
 <th style="text-align:left">隐性反馈数据</th>
 </tr>
@@ -1047,11 +1043,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li>用户行为的统一表示</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1082,7 +1076,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h3 id="用户行为分析"><a href="#用户行为分析" class="headerlink" title="用户行为分析"></a>用户行为分析</h3><ul>
 <li>长尾分布：用户越活跃，越倾向于浏览冷门的商品。</li>
 <li>协同过滤算法：基于邻域的方法（neighborhood-based）、隐语义模型（latent factor model）、基于图的随机游走算法（random walk on graph）</li>
@@ -1214,7 +1207,6 @@
 </ul>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1233,11 +1225,10 @@
 </tr>
 <tr>
 <td style="text-align:left">速度快，可以测试大量算法</td>
-<td style="text-align:left">———</td>
+<td style="text-align:left">——</td>
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li>用户调查（user study）</li>
 <li>在线实验（online experiment）<ul>
