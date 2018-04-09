@@ -317,7 +317,7 @@
 </ul>
 <p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：</p>
 <script type="math/tex; mode=display">\hat R = P^TQ</script><p>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p_{uf} = P(u,f)$，$q_{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
+<script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p<em>{uf} = P(u,f)$，$q</em>{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2</script><p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2 + $\lambda((\Vert p_u \Vert)^2+(\Vert q_i \Vert)^2 )</script><p>利用<strong>SGD（随机梯度下降法）</strong>，最小化损失函数，从而得到最终的$P$、$Q$矩阵。</p>
 <ul>
