@@ -307,12 +307,16 @@
 <p>给定 $m$ 个用户和 $n$ 个物品，和用户评分矩阵 $R[m][n]$ 。用平均值对矩阵缺失值进行简单的补全，得到补全后的矩阵 $R’$。可以用 SVD 将 $R’$分解为：</p>
 <script type="math/tex; mode=display">R' =  U^TSV</script><p>其中 $U\in\mathbb{R}^{k \times n}$ ，$V\in\mathbb{R}^{k \times n}$ 是两个正交矩阵，$S\in\mathbb{R}^{k \times k}$ 是对角阵，对角线上的每一个元素都是矩阵的奇异值。为了对 $R’$ 进行降维，可以取最大的 $f$ 个奇异值组成腿脚矩阵 $S_f$，并找到这 $f$ 个奇异值中每个值在 $U$、$V$ 矩阵中对应的行和列，得到 $U_f$、$V_f$，从而得到一个降维后的评分矩阵：</p>
 <script type="math/tex; mode=display">R^{'}_f = U^T_fS_fV_f</script><p>其中，$R^{‘}_f(u, i)$ 就是用户 $u$ 对物品 $i$ 评分的预测值。</p>
-<p>SVD 分解的缺点：<br>a. 需要先补全稀疏评分矩阵，成为稠密矩阵，此时需要很大空间存储。<br>b. 计算复杂度高，1000维以上速度很慢。 </p>
+<p>SVD 分解的缺点：</p>
+<ol>
+<li>需要先补全稀疏评分矩阵，成为稠密矩阵，此时需要很大空间存储。</li>
+<li>计算复杂度高，1000维以上速度很慢。 </li>
+</ol>
 <ul>
 <li><strong>Funk-SVD（Latent Factor Model，LFM）</strong></li>
 </ul>
 <p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：</p>
-<pre><code>$$\hat R = P^T Q$$
+<pre><code>$$\hat R = P^TQ$$
 </code></pre><p>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
 <script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p_{uf} = P(u,f)$，$q_{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2</script><p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：</p>
@@ -321,7 +325,11 @@
 <li><strong>加入偏置项后的 LFM （BiasSVD）</strong></li>
 </ul>
 <p>实际中，评分系统的固有属性和用户物品无关，而用户也有些属性和物品，物品也有些属性和用户无关。因此，Netflix Prize 提出了另一种 LFM，其预测公式为：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i</script><p>a. $\mu$ 表示训练集中所有记录的评分的全局平均数。<br>b. $b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。<br>c. $b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</p>
+<script type="math/tex; mode=display">\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i</script><ol>
+<li>$\mu$ 表示训练集中所有记录的评分的全局平均数。</li>
+<li>$b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。</li>
+<li>$b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</li>
+</ol>
 <ul>
 <li><strong>考虑邻域影响的 LFM（SVD++）</strong></li>
 </ul>
