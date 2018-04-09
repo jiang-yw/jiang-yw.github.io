@@ -304,11 +304,12 @@
 <ol>
 <li><strong>SVD 分解</strong><br>给定 $m$ 个用户和 $n$ 个物品，和用户评分矩阵 $R[m][n]$ 。用平均值对矩阵缺失值进行简单的补全，得到补全后的矩阵 $R^{‘}$。可以用 SVD 将 $R^{‘}$分解为：<script type="math/tex; mode=display">R' =  U^TSV</script>其中 $U\in\mathbb{R}^{k \times n}$ ，$V\in\mathbb{R}^{k \times n}$ 是两个正交矩阵，$S\in\mathbb{R}^{k \times k}$ 是对角阵，对角线上的每一个元素都是矩阵的奇异值。为了对 $R^{‘}$ 进行降维，可以取最大的 $f$ 个奇异值组成腿脚矩阵 $S_f$，并找到这 $f$ 个奇异值中每个值在 $U$、$V$ 矩阵中对应的行和列，得到 $U_f$、$V_f$，从而得到一个降维后的评分矩阵：<script type="math/tex; mode=display">R^{'}_f = U^T_fS_fV_f</script>其中，$R^{‘}_f(u, i)$ 就是用户 $u$ 对物品 $i$ 评分的预测值。</li>
 </ol>
-<pre><code>**SVD 分解 缺点：**
-
-- 需要先补全稀疏评分矩阵，成为稠密矩阵，此时需要很大空间存储。
-- 计算复杂度高，1000维以上速度很慢。 
-</code></pre><ol>
+<p><strong>SVD 分解 缺点：</strong></p>
+<ul>
+<li>需要先补全稀疏评分矩阵，成为稠密矩阵，此时需要很大空间存储。</li>
+<li>计算复杂度高，1000维以上速度很慢。 </li>
+</ul>
+<ol>
 <li><strong>Funk-SVD（Latent Factor Model，LFM）</strong><br>将评分矩阵 $R$ 分解为两个低维矩阵相乘：<script type="math/tex; mode=display">\hat R = P^T Q</script>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</li>
 </ol>
 <script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p<em>{uf} = P(u,f)$，$q</em>{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
