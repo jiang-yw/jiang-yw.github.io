@@ -1,290 +1,206 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Recommender System," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
-
-
-
-<meta name="description" content="用户行为数据 原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。 用户行为一般分为两种： 显性反馈行为（explicit feedback）：主要方式为评分或喜欢&#x2F;不喜欢。 隐性反馈行为（implicit feedback）：最具代表性：页面浏览行">
+  <meta name="description" content="用户行为数据 原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。 用户行为一般分为两种： 显性反馈行为（explicit feedback）：主要方式为评分或喜欢&#x2F;不喜欢。 隐性反馈行为（implicit feedback）：最具代表性：页面浏览行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《推荐系统实践》读书笔记（2）">
 <meta property="og:url" content="http://yoursite.com/2018/04/03/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/index.html">
 <meta property="og:site_name" content="琢玉札记">
 <meta property="og:description" content="用户行为数据 原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。 用户行为一般分为两种： 显性反馈行为（explicit feedback）：主要方式为评分或喜欢&#x2F;不喜欢。 隐性反馈行为（implicit feedback）：最具代表性：页面浏览行">
-<meta property="og:locale">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-04-03T14:46:58.000Z">
 <meta property="article:modified_time" content="2018-04-03T14:49:50.206Z">
 <meta property="article:author" content="江钰玮">
 <meta property="article:tag" content="Recommender System">
 <meta name="twitter:card" content="summary">
 
+<link rel="canonical" href="http://yoursite.com/2018/04/03/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/">
 
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title> 《推荐系统实践》读书笔记（2） | 琢玉札记 </title>
+  <title>《推荐系统实践》读书笔记（2） | 琢玉札记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">琢玉札记</span>
+      <h1 class="site-title">琢玉札记</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
-  
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
 </nav>
 
- </div>
+
+
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/">
 
-  
-  
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ww1.sinaimg.cn/large/c0403745jw8f3jtkfibh9j20ro0ro3zw.jpg">
+      <meta itemprop="name" content="江钰玮">
+      <meta itemprop="description" content="">
+    </span>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="琢玉札记">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                《推荐系统实践》读书笔记（2）
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          《推荐系统实践》读书笔记（2）
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-04-03 22:46:58 / 修改时间：22:49:50" itemprop="dateCreated datePublished" datetime="2018-04-03T22:46:58+08:00">2018-04-03</time>
             </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-03T22:46:58+08:00" content="2018-04-03">
-              2018-04-03
-            </time>
-          </span>
 
           
 
-          
-            
-          
-
-          
-
-          
-          
-
-          
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h3 id="用户行为数据"><a href="#用户行为数据" class="headerlink" title="用户行为数据"></a>用户行为数据</h3><ul>
@@ -296,71 +212,79 @@
 </li>
 <li>显隐性反馈数据比较：</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">–</th>
-<th align="left">显性反馈数据</th>
-<th align="left">隐性反馈数据</th>
+<th style="text-align:left">—</th>
+<th style="text-align:left">显性反馈数据</th>
+<th style="text-align:left">隐性反馈数据</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">用户兴趣</td>
-<td align="left">明确</td>
-<td align="left">不明确</td>
+<tbody>
+<tr>
+<td style="text-align:left">用户兴趣</td>
+<td style="text-align:left">明确</td>
+<td style="text-align:left">不明确</td>
 </tr>
 <tr>
-<td align="left">数量</td>
-<td align="left">较少</td>
-<td align="left">庞大</td>
+<td style="text-align:left">数量</td>
+<td style="text-align:left">较少</td>
+<td style="text-align:left">庞大</td>
 </tr>
 <tr>
-<td align="left">存储</td>
-<td align="left">数据库</td>
-<td align="left">分布式文件系统</td>
+<td style="text-align:left">存储</td>
+<td style="text-align:left">数据库</td>
+<td style="text-align:left">分布式文件系统</td>
 </tr>
 <tr>
-<td align="left">实时读取</td>
-<td align="left">实时</td>
-<td align="left">有延迟</td>
+<td style="text-align:left">实时读取</td>
+<td style="text-align:left">实时</td>
+<td style="text-align:left">有延迟</td>
 </tr>
 <tr>
-<td align="left">正负反馈</td>
-<td align="left">都有</td>
-<td align="left">只有正反馈</td>
+<td style="text-align:left">正负反馈</td>
+<td style="text-align:left">都有</td>
+<td style="text-align:left">只有正反馈</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>用户行为的统一表示</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">user id</th>
-<th align="left">产生行为的用户唯一标识</th>
+<th style="text-align:left">user id</th>
+<th style="text-align:left">产生行为的用户唯一标识</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">item id</td>
-<td align="left">产生行为的对象唯一标识</td>
+<tbody>
+<tr>
+<td style="text-align:left">item id</td>
+<td style="text-align:left">产生行为的对象唯一标识</td>
 </tr>
 <tr>
-<td align="left">behavior type</td>
-<td align="left">行为的种类</td>
+<td style="text-align:left">behavior type</td>
+<td style="text-align:left">行为的种类</td>
 </tr>
 <tr>
-<td align="left">context</td>
-<td align="left">产生行为的上下文，时间和地点等</td>
+<td style="text-align:left">context</td>
+<td style="text-align:left">产生行为的上下文，时间和地点等</td>
 </tr>
 <tr>
-<td align="left">behavior weight</td>
-<td align="left">行为的权重</td>
+<td style="text-align:left">behavior weight</td>
+<td style="text-align:left">行为的权重</td>
 </tr>
 <tr>
-<td align="left">behavior content</td>
-<td align="left">行为的内容</td>
+<td style="text-align:left">behavior content</td>
+<td style="text-align:left">行为的内容</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="用户行为分析"><a href="#用户行为分析" class="headerlink" title="用户行为分析"></a>用户行为分析</h3><ul>
 <li>长尾分布：用户越活跃，越倾向于浏览冷门的商品。</li>
 <li>协同过滤算法：基于邻域的方法（neighborhood-based）、隐语义模型（latent factor model）、基于图的随机游走算法（random walk on graph）</li>
@@ -385,169 +309,136 @@
 <h5 id="隐语义模型"><a href="#隐语义模型" class="headerlink" title="隐语义模型"></a>隐语义模型</h5><p>对物品和用户兴趣进行分类。先得到用户的兴趣分类，再从分类中推荐用户可能喜欢的物品。</p>
 <h5 id="基于图的模型"><a href="#基于图的模型" class="headerlink" title="基于图的模型"></a>基于图的模型</h5><p>将用户行为用图（二分图）表示，并利用图的算法给用户进行个性化推荐。</p>
 
-      
     </div>
 
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Recommender-System/" rel="tag">#Recommender System</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/04/02/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" rel="next" title="《推荐系统实践》读书笔记（1）">
-                <i class="fa fa-chevron-left"></i> 《推荐系统实践》读书笔记（1）
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/04/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89/" rel="prev" title="《推荐系统实践》读书笔记（3）">
-                《推荐系统实践》读书笔记（3） <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
     
-  </div>
+    
+    
 
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Recommender-System/" rel="tag"># Recommender System</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/04/02/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" rel="prev" title="《推荐系统实践》读书笔记（1）">
+      <i class="fa fa-chevron-left"></i> 《推荐系统实践》读书笔记（1）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/04/04/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89/" rel="next" title="《推荐系统实践》读书笔记（3）">
+      《推荐系统实践》读书笔记（3） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">用户行为数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">用户行为分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.1.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.1.2.</span> <span class="nav-text">离线实验设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87"><span class="nav-number">2.1.3.</span> <span class="nav-text">评测指标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%82%BB%E5%9F%9F%E7%9A%84%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.4.</span> <span class="nav-text">基于邻域的算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%90%E8%AF%AD%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.5.</span> <span class="nav-text">隐语义模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%9B%BE%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.6.</span> <span class="nav-text">基于图的模型</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview sidebar-panel ">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="" />
-          <p class="site-author-name" itemprop="name"></p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">42</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
+    <img class="site-author-image" itemprop="image" alt="江钰玮"
+      src="https://ww1.sinaimg.cn/large/c0403745jw8f3jtkfibh9j20ro0ro3zw.jpg">
+  <p class="site-author-name" itemprop="name">江钰玮</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
           
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
 
-        </nav>
 
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">用户行为数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">用户行为分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">协同过滤算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.1.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.1.2.</span> <span class="nav-text">离线实验设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B%E6%8C%87%E6%A0%87"><span class="nav-number">2.1.3.</span> <span class="nav-text">评测指标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%82%BB%E5%9F%9F%E7%9A%84%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.4.</span> <span class="nav-text">基于邻域的算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%90%E8%AF%AD%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.5.</span> <span class="nav-text">隐语义模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%9B%BE%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.6.</span> <span class="nav-text">基于图的模型</span></a></li></ol></li></ol></li></ol></div>
-            
-          </div>
-        </section>
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        
+
+        
+
+<div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2021</span>
@@ -556,104 +447,58 @@
   </span>
   <span class="author" itemprop="copyrightHolder">江钰玮</span>
 </div>
-
-<div class="powered-by">
-  由 <a class="theme-link" target="_blank" rel="noopener" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
 
         
 
-        
+
+
+
+
+
+
+
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+<script src="/js/utils.js"></script>
 
-
-
-
-
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
-  
 
 
-
-  
-
-
-
-  
-  
-  
 
   
 
