@@ -1,23 +1,1697 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!doctype html>
 
-{% block title %} {{ config.title }} {% endblock %}
 
-{% block page_class %}
-  {% if is_home() %} page-home {% endif %}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="琢玉札记">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="琢玉札记">
+<meta property="og:locale">
+<meta property="article:author" content="江钰玮">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 琢玉札记 </title>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">琢玉札记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2021/03/26/hello-world/" itemprop="url">
+                  Hello World
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2021-03-26T01:18:05+08:00" content="2021-03-26">
+              2021-03-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/09/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%888%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（8）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-09T19:41:34+08:00" content="2018-04-09">
+              2018-04-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>TopN 推荐<br>给定了一个用户，如何生成一个长度为 N 的推荐列表，使该推荐列表能够尽量满足用户的兴趣和需求。</p>
+</li>
+<li><p>评分预测<br>如何通过已知的用户历史评分记录预测未知的用户评分记录</p>
+</li>
+</ul>
+<h3 id="离线实验"><a href="#离线实验" class="headerlink" title="离线实验"></a>离线实验</h3><ul>
+<li>与时间无关任务可以可以均匀分布随机划分数据集</li>
+<li>与时间有关任务将用户的旧行为作为训练集，剩下的作为测试集</li>
+</ul>
+<h3 id="评分预测算法"><a href="#评分预测算法" class="headerlink" title="评分预测算法"></a>评分预测算法</h3><h4 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h4><p>最简单的评分预测算法是利用平均值预测用户对物品的评分的。</p>
+<h4 id="基于邻域的算法"><a href="#基于邻域的算法" class="headerlink" title="基于邻域的算法"></a>基于邻域的算法</h4><ul>
+<li>基于用户：预测一个用户对一个物品的评分，参考和这个用户兴趣相似的用户对该物品的评分</li>
+<li>基于物品：预测一个用户对一个物品的评分，参考用户对这个物品相似的其他物品的评分</li>
+</ul>
+<h4 id="隐语义模型和矩阵分解模型"><a href="#隐语义模型和矩阵分解模型" class="headerlink" title="隐语义模型和矩阵分解模型"></a>隐语义模型和矩阵分解模型</h4><p>二者都是通过降维的方法将评分矩阵补全。</p>
+<p>用户的评分行为可以表示成一个评分矩阵 $R$，其中 $R[u][i]$ 是用户 $u$ 对物品 $i$ 的评分。用户不会对所有物品评分，所以矩阵很多元素都是空的，空的元素成为 <strong>缺失值（missing value）</strong>。如果一个用户对物品没有评分，推荐系统需要预测这个用户是否会对这个物品评分以及评几分。</p>
+<ul>
+<li><strong>SVD 分解</strong></li>
+</ul>
+<p>给定 $m$ 个用户和 $n$ 个物品，和用户评分矩阵 $R[m][n]$ 。用平均值对矩阵缺失值进行简单的补全，得到补全后的矩阵 $R’$。可以用 SVD 将 $R’$分解为：<br>$$R’ =  U^TSV$$<br>其中 $U\in\mathbb{R}^{k \times n}$ ，$V\in\mathbb{R}^{k \times n}$ 是两个正交矩阵，$S\in\mathbb{R}^{k \times k}$ 是对角阵，对角线上的每一个元素都是矩阵的奇异值。为了对 $R’$ 进行降维，可以取最大的 $f$ 个奇异值组成腿脚矩阵 $S_f$，并找到这 $f$ 个奇异值中每个值在 $U$、$V$ 矩阵中对应的行和列，得到 $U_f$、$V_f$，从而得到一个降维后的评分矩阵：<br>$$R^{‘}_f = U^T_fS_fV_f$$<br>其中，$R^{‘}_f(u, i)$ 就是用户 $u$ 对物品 $i$ 评分的预测值。</p>
+<p>SVD 分解的缺点：</p>
+<ol>
+<li>需要先补全稀疏评分矩阵，成为稠密矩阵，此时需要很大空间存储。</li>
+<li>计算复杂度高，1000维以上速度很慢。 </li>
+</ol>
+<ul>
+<li><strong>Funk-SVD（Latent Factor Model，LFM）</strong></li>
+</ul>
+<p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：<br>$$\hat R = P^TQ$$<br>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
+<p>$$\hat r_{ui} = \sum_fp_{uf}q_{uf}$$</p>
+<p>其中 $p_{uf} = P(u,f)$，$q_{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
+<p>$$C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2$$</p>
+<p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：<br>$$C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2 + $\lambda((\Vert p_u \Vert)^2+(\Vert q_i \Vert)^2 )$$<br>利用<strong>SGD（随机梯度下降法）</strong>，最小化损失函数，从而得到最终的$P$、$Q$矩阵。</p>
+<ul>
+<li><strong>加入偏置项后的 LFM （BiasSVD）</strong></li>
+</ul>
+<p>实际中，评分系统的固有属性和用户物品无关，而用户也有些属性和物品，物品也有些属性和用户无关。因此，Netflix Prize 提出了另一种 LFM，其预测公式为：<br>$$\hat r_{ui} = \mu + b_u + b_i + p^T_u \cdot q_i$$</p>
+<p>$\mu$ 表示训练集中所有记录的评分的全局平均数。<br>$b_u$ 用户偏置（user bias）项。表示用户评分习惯中和物品没有关系的因素。<br>$b_i$ 物品偏置（item bias）项。表示物品接受的评分中和用户没有关系的因素。</p>
+<ul>
+<li><strong>考虑邻域影响的 LFM（SVD++）</strong></li>
+</ul>
+<p>将用户评分的物品加入到 LFM 模型中。<br>$$\hat r_{ui} = \frac{1}{\sqrt {\vert N(u) \vert}} \sum_{j \in N(u)} x^T_i y_j = \frac{1}{\sqrt {\vert N(u) \vert}} x^T_i \sum_{j \in N(u)} y_j$$<br>将 LFM 与上面模型相加，并为不增加太多参数造成过拟合，令 $x = q$ 有：<br>$$\hat r_{ui} = \mu + b_u + b_i + q^T_i \cdot （p_u + \frac{1}{\sqrt {\vert N(u) \vert}} x^T_i \sum_{j \in N(u)} y_j）$$</p>
+<h4 id="加入时间信息"><a href="#加入时间信息" class="headerlink" title="加入时间信息"></a>加入时间信息</h4><ol>
+<li>基于邻域的模型融合时间信息</li>
+<li>基于矩阵分解的模型融合时间信息</li>
+</ol>
+<h4 id="模型融合技术"><a href="#模型融合技术" class="headerlink" title="模型融合技术"></a>模型融合技术</h4><ol>
+<li>模型级联融合<br>每次产生一个新模型，按照一定的参数加到就模型上去，从而使训练集误差最小化。</li>
+<li>模型加权融合<br>模型融合问题是回归问题，适用于所有回归算法。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/08/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%887%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（7）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-08T18:10:33+08:00" content="2018-04-08">
+              2018-04-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="推荐系统的外围架构"><a href="#推荐系统的外围架构" class="headerlink" title="推荐系统的外围架构"></a>推荐系统的外围架构</h3><p><img src="/.com//%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%A4%96%E5%9B%B4%E6%9E%B6%E6%9E%84.png" alt="推荐系统的外围架构"></p>
+<h4 id="数据收集和存储"><a href="#数据收集和存储" class="headerlink" title="数据收集和存储"></a>数据收集和存储</h4><p>按照数据的规模和是否需要实时存取，不同的行为数据存储在不同的媒介中。</p>
+<ol>
+<li>需要实时存取的数据存储在数据库和缓存中</li>
+<li>大规模的非实时存取数据存储在分布式文件系统（如 HDFS）中</li>
+</ol>
+<h3 id="推荐系统的架构"><a href="#推荐系统的架构" class="headerlink" title="推荐系统的架构"></a>推荐系统的架构</h3><h4 id="基于特征"><a href="#基于特征" class="headerlink" title="基于特征"></a>基于特征</h4><ul>
+<li><p>任务</p>
+<ol>
+<li>为给定用户生成特征</li>
+<li>根据特征找到物品</li>
+</ol>
+</li>
+<li><p>推荐引擎</p>
+</li>
+</ul>
+<p>推荐系统由多个推荐引擎组合，每个引擎负责一类特征（即代表了一种推荐策略），将结果按照一定权重或者优先级合并、排序后返回。</p>
+<h3 id="推荐引擎的架构"><a href="#推荐引擎的架构" class="headerlink" title="推荐引擎的架构"></a>推荐引擎的架构</h3><p><img src="/.com//%E6%8E%A8%E8%8D%90%E5%BC%95%E6%93%8E%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="推荐引擎架构图"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/07/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%886%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（6）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-07T11:45:48+08:00" content="2018-04-07">
+              2018-04-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="社交网络数据"><a href="#社交网络数据" class="headerlink" title="社交网络数据"></a>社交网络数据</h3><ol>
+<li>双向确认的社交网络数据：无向图表示</li>
+<li>单向关注的社交网络数据：有向图表示</li>
+<li>基于社区的社交网络数据：无明确关系，但包含用户所属不同社区的数据</li>
+</ol>
+<h3 id="基于社交网络的推荐"><a href="#基于社交网络的推荐" class="headerlink" title="基于社交网络的推荐"></a>基于社交网络的推荐</h3><ol>
+<li>好友推荐可以增加推荐的信任度</li>
+<li>社交网络可以解决冷启动问题</li>
+</ol>
+<h4 id="基于邻域的社会化推荐算法"><a href="#基于邻域的社会化推荐算法" class="headerlink" title="基于邻域的社会化推荐算法"></a>基于邻域的社会化推荐算法</h4><p>给用户推荐好友喜欢的物品集合，算法中考虑好友和用户的熟悉程度及兴趣相似度。</p>
+<h4 id="基于图的社会化推荐算法"><a href="#基于图的社会化推荐算法" class="headerlink" title="基于图的社会化推荐算法"></a>基于图的社会化推荐算法</h4><p>社交网站中存在两种关系，一种是用户对物品的兴趣关系，一种是用户之间的社交网络关系。建立这两种关系到图模型中，从而实现对用户的个性化推荐。</p>
+<h4 id="实际系统中的社会化推荐算法"><a href="#实际系统中的社会化推荐算法" class="headerlink" title="实际系统中的社会化推荐算法"></a>实际系统中的社会化推荐算法</h4><ol>
+<li>在拿用户好友集合时只拿出和用户相似度最高的 N 个好友 。</li>
+<li>为每个用户维护一个消息队列（message queue）。</li>
+</ol>
+<h4 id="社会化推荐系统和协同过滤系统系统"><a href="#社会化推荐系统和协同过滤系统系统" class="headerlink" title="社会化推荐系统和协同过滤系统系统"></a>社会化推荐系统和协同过滤系统系统</h4><blockquote>
+<p>社会化系统的离线评测：“Recommendations in Taste Related Domains: Collaborative Filtering vs. Social Filtering”</p>
+</blockquote>
+<h4 id="信息流推荐"><a href="#信息流推荐" class="headerlink" title="信息流推荐"></a>信息流推荐</h4><p>Facebook 的 EdgeRank</p>
+<h3 id="给用户推荐好友"><a href="#给用户推荐好友" class="headerlink" title="给用户推荐好友"></a>给用户推荐好友</h3><ol>
+<li>基于内容的匹配</li>
+<li>基于共同兴趣的好友推荐</li>
+<li>基于社交网络图的好友推荐</li>
+<li>基于用户调查的好友推荐对比</li>
+</ol>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ol>
+<li>常用数据集：基于 Epinion 的用户信任网络</li>
+<li>基于矩阵分解的社会化推荐算法 解决评分预测问题<blockquote>
+<p>“SoRec:Social Recommendation Using Probabilistic Matrix Factorization”</p>
+</blockquote>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/06/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%885%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（5）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-06T21:41:10+08:00" content="2018-04-06">
+              2018-04-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>关于上下文推荐的研究，参考综述《Context Aware Recommender Systems》</p>
+</blockquote>
+<h3 id="时间上下文信息"><a href="#时间上下文信息" class="headerlink" title="时间上下文信息"></a>时间上下文信息</h3><h4 id="时间效应"><a href="#时间效应" class="headerlink" title="时间效应"></a>时间效应</h4><ol>
+<li>用户兴趣是变化的</li>
+<li>物品有生命周期</li>
+<li>季节效应</li>
+</ol>
+<h4 id="时间特性分析"><a href="#时间特性分析" class="headerlink" title="时间特性分析"></a>时间特性分析</h4><ol>
+<li>物品的生存周期指标：物品平均在线天数</li>
+<li>系统的时效性指标：相隔 T 天系统物品流行度向量的平均相似度</li>
+</ol>
+<h4 id="推荐系统的实时性和时间多样性"><a href="#推荐系统的实时性和时间多样性" class="headerlink" title="推荐系统的实时性和时间多样性"></a>推荐系统的实时性和时间多样性</h4><h3 id="地点上下文信息"><a href="#地点上下文信息" class="headerlink" title="地点上下文信息"></a>地点上下文信息</h3><h4 id="基于位置的推荐算法"><a href="#基于位置的推荐算法" class="headerlink" title="基于位置的推荐算法"></a>基于位置的推荐算法</h4><h5 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h5><ol>
+<li>（用户，用户位置，物品，评分）：某个地点的用户对物品的评分</li>
+<li>（用户，物品，物品位置，评分）：用户对某个地点的物品的评分</li>
+<li>（用户，用户位置，物品，物品位置，评分）：某个位置的用户对某个位置的物品的评分</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/05/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%884%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（4）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-05T20:54:22+08:00" content="2018-04-05">
+              2018-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>推荐系统联系用户和物品的途径<br><img src="/.com//%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E8%81%94%E7%B3%BB%E7%94%A8%E6%88%B7%E5%92%8C%E7%89%A9%E5%93%81%E7%9A%84%E5%87%A0%E7%A7%8D%E9%80%94%E5%BE%84.png" alt="推荐系统联系用户和物品的几种途径"></li>
+</ul>
+<h3 id="特征表现形式"><a href="#特征表现形式" class="headerlink" title="特征表现形式"></a>特征表现形式</h3><ol>
+<li>物品的属性集合：例如图书的属性集合包括作者、出版社、主题和关键词等</li>
+<li>隐语义模型</li>
+<li>标签：描述物品的语义</li>
+</ol>
+<h4 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h4><ol>
+<li>作者或专家给用户打标签</li>
+<li>用户给物品打标签，即 UGC（User Generated Content，用户生成的内容）<br> 用户对一个物品打上一个标签，这个标签既描述了用户的兴趣，又表示了物品的语义，从而将用户和物品联系起来。</li>
+</ol>
+<h3 id="标签系统中的推荐问题"><a href="#标签系统中的推荐问题" class="headerlink" title="标签系统中的推荐问题"></a>标签系统中的推荐问题</h3><ol>
+<li>如何利用用户打标签的行为为其推荐物品（基于标签的推荐）？</li>
+<li>如何在用户给物品打标签时为其推荐适合该物品的标签（标签推荐）？</li>
+</ol>
+<h3 id="基于标签的推荐系统"><a href="#基于标签的推荐系统" class="headerlink" title="基于标签的推荐系统"></a>基于标签的推荐系统</h3><h4 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h4><ol>
+<li>标签扩展<br>对每个标签找到和它相似的标签，计算标签之间的相似度。</li>
+<li>标签清理<ol>
+<li>去除词频很高的停止词（或表示情绪的词）</li>
+<li>去除因词根不同造成的同义词</li>
+<li>去除因分隔符造成的同义词</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/04/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（3）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-04T11:32:14+08:00" content="2018-04-04">
+              2018-04-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="冷启动问题"><a href="#冷启动问题" class="headerlink" title="冷启动问题"></a>冷启动问题</h3><ol>
+<li>用户冷启动：给新用户做个性化推荐。</li>
+<li>物品冷启动：将新的物品推荐给它感兴趣的用户。</li>
+<li>系统冷启动：在一个新开发的网站上（还没有用户，也没有用户行为，只有一些物品的信息）设计个性化推荐系统。</li>
+</ol>
+<h3 id="冷启动解决方案"><a href="#冷启动解决方案" class="headerlink" title="冷启动解决方案"></a>冷启动解决方案</h3><ol>
+<li>提供非个性化的推荐：热门排行榜</li>
+<li>利用用户注册信息做粗粒度的个性化</li>
+<li>利用用户社交账号登录，导入用户社交网站的好友信息，给用户推荐其好友喜欢的物品。</li>
+<li>要求用户登录时对一些物品进行反馈，收集用户对这些物品的兴趣信息，推荐相似物品。</li>
+<li>对于新加入的物品，利用内容信息，将其推荐给喜欢过其相似物品的用户。</li>
+<li>系统冷启动时，引入专家知识，建立物品的相关度表。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/03/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-03T22:46:58+08:00" content="2018-04-03">
+              2018-04-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="用户行为数据"><a href="#用户行为数据" class="headerlink" title="用户行为数据"></a>用户行为数据</h3><ul>
+<li>原始日志（raw log）按照用户行为汇总成会话日志（session log），会话日志通常存储在分布式数据仓库中，例如 Hadoop Hive（离线分析） 和 Google Dremel（在线分析）。</li>
+<li>用户行为一般分为两种：<ol>
+<li>显性反馈行为（explicit feedback）：主要方式为评分或喜欢/不喜欢。</li>
+<li>隐性反馈行为（implicit feedback）：最具代表性：页面浏览行为。</li>
+</ol>
+</li>
+<li>显隐性反馈数据比较：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">–</th>
+<th align="left">显性反馈数据</th>
+<th align="left">隐性反馈数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">用户兴趣</td>
+<td align="left">明确</td>
+<td align="left">不明确</td>
+</tr>
+<tr>
+<td align="left">数量</td>
+<td align="left">较少</td>
+<td align="left">庞大</td>
+</tr>
+<tr>
+<td align="left">存储</td>
+<td align="left">数据库</td>
+<td align="left">分布式文件系统</td>
+</tr>
+<tr>
+<td align="left">实时读取</td>
+<td align="left">实时</td>
+<td align="left">有延迟</td>
+</tr>
+<tr>
+<td align="left">正负反馈</td>
+<td align="left">都有</td>
+<td align="left">只有正反馈</td>
+</tr>
+</tbody></table>
+<ul>
+<li>用户行为的统一表示</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">user id</th>
+<th align="left">产生行为的用户唯一标识</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">item id</td>
+<td align="left">产生行为的对象唯一标识</td>
+</tr>
+<tr>
+<td align="left">behavior type</td>
+<td align="left">行为的种类</td>
+</tr>
+<tr>
+<td align="left">context</td>
+<td align="left">产生行为的上下文，时间和地点等</td>
+</tr>
+<tr>
+<td align="left">behavior weight</td>
+<td align="left">行为的权重</td>
+</tr>
+<tr>
+<td align="left">behavior content</td>
+<td align="left">行为的内容</td>
+</tr>
+</tbody></table>
+<h3 id="用户行为分析"><a href="#用户行为分析" class="headerlink" title="用户行为分析"></a>用户行为分析</h3><ul>
+<li>长尾分布：用户越活跃，越倾向于浏览冷门的商品。</li>
+<li>协同过滤算法：基于邻域的方法（neighborhood-based）、隐语义模型（latent factor model）、基于图的随机游走算法（random walk on graph）</li>
+</ul>
+<h4 id="协同过滤算法"><a href="#协同过滤算法" class="headerlink" title="协同过滤算法"></a>协同过滤算法</h4><h5 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h5><p>利用 MovieLens 数据集（忽略评分记录）研究隐反馈数据集 TopN 推荐问题，即预测用户会不会对某部电影评分，而非预测用户对某电影评多少分。</p>
+<h5 id="离线实验设计"><a href="#离线实验设计" class="headerlink" title="离线实验设计"></a>离线实验设计</h5><ol>
+<li>将用户行为数据集按均匀分布随机分成M份，选一份为测试集，其余为训练集。</li>
+<li>在训练集上建立用户兴趣模型，并在测试集上对用户行为进行预测，统计出相应的评价指标。</li>
+<li>为保证指标不过拟合，需进行 M 次实验，并每次选用不同测试集，将 M 次实验测出的评测指标的平均值作为最终评测指标。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将数据集随机分成训练集和测试集</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SplitData</span>(<span class="params">data, M, k, seed</span>):</span></span><br><span class="line">    test = []</span><br><span class="line">    train = []</span><br><span class="line">    random.seed(seed)</span><br><span class="line">    <span class="keyword">for</span> user, item <span class="keyword">in</span> data:</span><br><span class="line">        <span class="keyword">if</span> random.randint(<span class="number">0</span>, M) == k:</span><br><span class="line">            test.append([user, item])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            train.append([user, item])</span><br><span class="line">    <span class="keyword">return</span> train, test</span><br></pre></td></tr></table></figure>
+<h5 id="评测指标"><a href="#评测指标" class="headerlink" title="评测指标"></a>评测指标</h5><ol>
+<li>召回率：描述有多少比例的用户-物品评分记录包含在最终的推荐列表中。</li>
+<li>准确率：描述最终的推荐列表中有多少比例是发生在用户-物品评分记录。</li>
+<li>覆盖率：反映推荐算法发掘长为的能力，覆盖率越高，越能将长尾中的物品推荐给用户。</li>
+<li>新颖度：对每个物品的流行度取对数，计算平均流行度。（因物品流行度分布满足长尾分布，取对数使得流行度平均值更稳定。）</li>
+</ol>
+<h5 id="基于邻域的算法"><a href="#基于邻域的算法" class="headerlink" title="基于邻域的算法"></a>基于邻域的算法</h5><ol>
+<li>基于用户的协同过滤算法（UserCF）：给用户推荐和他兴趣相似的其他用户喜欢的物品。</li>
+<li>基于物品的协同过滤算法（ItemCF）：给用户推荐和他之前喜欢的物品相似的物品。</li>
+</ol>
+<h5 id="隐语义模型"><a href="#隐语义模型" class="headerlink" title="隐语义模型"></a>隐语义模型</h5><p>对物品和用户兴趣进行分类。先得到用户的兴趣分类，再从分类中推荐用户可能喜欢的物品。</p>
+<h5 id="基于图的模型"><a href="#基于图的模型" class="headerlink" title="基于图的模型"></a>基于图的模型</h5><p>将用户行为用图（二分图）表示，并利用图的算法给用户进行个性化推荐。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/02/%E3%80%8A%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" itemprop="url">
+                  《推荐系统实践》读书笔记（1）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-02T22:07:32+08:00" content="2018-04-02">
+              2018-04-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>学术论文把推荐问题看做评分预测问题，而实际应用中最常见的是 TopN 推荐。</p>
+</blockquote>
+<h3 id="推荐算法"><a href="#推荐算法" class="headerlink" title="推荐算法"></a>推荐算法</h3><ol>
+<li>社会化推荐（social recommendation）</li>
+<li>基于内容推荐（content-based filtering）</li>
+<li>基于协同过滤的推荐（collaborative filtering）：历史兴趣相似的用户</li>
+</ol>
+<h3 id="推荐系统实验方法"><a href="#推荐系统实验方法" class="headerlink" title="推荐系统实验方法"></a>推荐系统实验方法</h3><ul>
+<li>离线实验（offline experiment）<ul>
+<li>步骤<br>  (1)通过日志系统获得用户行为数据，并按照一定格式生成一个标准的数据集<br>  (2)将数据集按照一定的规则分成训练集和测试集<br>  (3)在训练集上训练用户兴趣模型，在测试集上进行预测<br>  (4)通过事先定义的离线指标评测算法在测试集上预测结果</li>
+<li>优缺点</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">不需要用户有对实际系统的控制权</td>
+<td align="left">无法计算商业上关心的指标</td>
+</tr>
+<tr>
+<td align="left">不需要用户参与实验</td>
+<td align="left">离线实验的指标和商业指标存在差距</td>
+</tr>
+<tr>
+<td align="left">速度快，可以测试大量算法</td>
+<td align="left">——</td>
+</tr>
+</tbody></table>
+<ul>
+<li> 用户调查（user study）</li>
+<li>在线实验（online experiment）<ul>
+<li>AB 测验：通过一定的规则将用户随机分成几组，并对不同组的用户采用不同的算法，通过统计不同组用户的不同评测指标来比较不同算法</li>
+</ul>
+</li>
+</ul>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><ol>
+<li>用户满意度<br> 无法离线计算，只能通过用户调查或在线实验获得。</li>
+<li>预测准确度<br> 可通过离线计算。<br> 2.1 评分预测<br> 通过<code>均方根误差（RMSE）</code>和<code>平均绝对误差（MAE）</code> 计算。<br> 2.2 TopN 推荐<br> 通过<code>准确率（precision）</code>/<code>召回率（recall）</code>度量。<br> 有时，为全面评测 TopN 推荐的准确率和召回率，选取不同的推荐列表长度 N，计算出一组<code>准确率/召回率</code>，然后画出<code>准确率/召回率曲线（precision/recall curve）</code>。</li>
+<li>覆盖率（coverage）<br> 最简单定义为推荐系统能够推荐出来的物品占总物品集合的比例。<br> 两个著名指标：<code>信息熵</code>和<code>基尼系数</code>。</li>
+<li>多样性</li>
+<li>新颖性</li>
+<li>惊喜度（serendipity）</li>
+<li>信任度（trust）</li>
+<li>实时性</li>
+<li>健壮性</li>
+<li>商业目标</li>
+</ol>
+<h3 id="评价维度"><a href="#评价维度" class="headerlink" title="评价维度"></a>评价维度</h3><ol>
+<li>用户维度</li>
+<li>物品维度</li>
+<li>时间维度</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/09/LeetCode-Easy-171-Excel-Sheet-Column-Number/" itemprop="url">
+                  [LeetCode Easy] 171. Excel Sheet Column Number
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-09T22:37:40+08:00" content="2017-05-09">
+              2017-05-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><pre><code>A -&gt; 1
+B -&gt; 2
+C -&gt; 3
+...
+Z -&gt; 26
+AA -&gt; 27
+AB -&gt; 28 
+</code></pre>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>二十六进制转十进制。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            ans += (s.charAt(i) - <span class="string">&#x27;A&#x27;</span> + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (i != s.length() - <span class="number">1</span>) &#123;</span><br><span class="line">                ans *= <span class="number">26</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>Status: Accepted<br>Runtime: 2 ms</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>进制转换。</li>
+<li> 属于 <a href="/2017/05/09/LeetCode-Easy-168-Excel-Sheet-Column-Title/" title="[LeetCode Easy] 168. Excel Sheet Column Title">[LeetCode Easy] 168. Excel Sheet Column Title</a> 后续问题。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">江钰玮</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" target="_blank" rel="noopener" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
