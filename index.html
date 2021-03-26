@@ -70,13 +70,9 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
@@ -231,7 +227,7 @@
 </ul>
 <p>将评分矩阵 $R$ 分解为两个低维矩阵相乘：</p>
 <script type="math/tex; mode=display">\hat R = P^TQ</script><p>其中 $P\in\mathbb{R}^{f \times m}$ 和 $Q\in\mathbb{R}^{f \times n}$ 是两个降维后的矩阵。对于用户 $u$ 对物品 $i$ 的评分的预测值 $\hat R(u,i) = \hat r_{ui}$，可以通过如下公式计算：</p>
-<script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p<em>{uf} = P(u,f)$，$q</em>{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
+<script type="math/tex; mode=display">\hat r_{ui} = \sum_fp_{uf}q_{uf}</script><p>其中 $p_{uf} = P(u,f)$，$q_{if} = P(i,f)$。利用线性回归的思想，定义损失函数：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \hat r_{ui})^2 = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2</script><p>直接优化损失函数可能会导致过拟合，需加入放过拟合项 $\lambda({\Vert p_u \Vert}^2+{\Vert q_i \Vert}^2 )$，其中 $\lambda$ 是正则化参数，有：</p>
 <script type="math/tex; mode=display">C(p,q) = \sum_{(u,i) \in Train} (r_{ui} - \sum^F_{f=1} p_{uf}q_{uf})^2 + $\lambda((\Vert p_u \Vert)^2+(\Vert q_i \Vert)^2 )</script><p>利用<strong>SGD（随机梯度下降法）</strong>，最小化损失函数，从而得到最终的$P$、$Q$矩阵。</p>
 <ul>
@@ -1248,7 +1244,7 @@ AB -&gt; 28
 <script src="/js/next-boot.js"></script>
 
 
-  <script defer src="/lib/three/three.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -1268,6 +1264,61 @@ AB -&gt; 28
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
 
   
 
